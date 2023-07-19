@@ -17,3 +17,5 @@ Lautaro Madariaga encargado del diseño y creación del logo de la página.
 Hola soy Victoria serrano, bienvenido a nuestra página esperó que la pase bien.
 
 Hola soy Joel Aguirre, un profesional del backend, bienvenido y le desea una feliz compra.
+
+Hola soy Daniel Ramos, Soy el chef.
