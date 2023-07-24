@@ -11,3 +11,5 @@ Daniel Ramos, el chef.
 Hola soy Victoria serrano, bienvenido a nuestra página esperó que la pase bien.
 
 Hola soy Joel Aguirre, un profesional del backend, bienvenido y le desea una feliz compra.
+
+Hola! soy Rocío Aguilera, especialista en optimización para dispositivos móviles en páginas web. Su experiencia en diseño  garantiza que los sitios sean funcionales y atractivos en dispositivos móviles. Estoy dispuesta a ayudarte en lo que necesites!.
