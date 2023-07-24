@@ -18,7 +18,11 @@ Hola! soy Rocío Aguilera, especialista en optimización para dispositivos móvi
 url de páginas:
 
 1- https://sarahssnacks.com/ elegida por la facilidad de uso.
+
 2- https://veganessentials.com/ elegida para el diseño del carrito de compras para computadoras.
+
 3- https://www.vitacost.com/ elegida para la distribución de las imagenes.
+
 4- https://www.mercadolibre.com.ar/ elegida para el diseño del carrito de compras para celular.
+
 5- https://kravejerky.com/ por las funcionalidades de la pagina.
