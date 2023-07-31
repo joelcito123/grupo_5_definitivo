@@ -26,3 +26,6 @@ url de páginas:
 4- https://www.mercadolibre.com.ar/ elegida para el diseño del carrito de compras para celular.
 
 5- https://kravejerky.com/ por las funcionalidades de la pagina.
+
+
+Esto es solo una prueba del comando git checkout.
