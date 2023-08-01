@@ -1,13 +1,41 @@
-/*Estilos generales*/
+/*Selectores generales*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none;
+}
+
+ul a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+
 /*Aplicando estilos al header*/
 header {
-    background-color: #666666;
+    background-color: #CCCCCC;
+    width: 100%;
+}
+
+header figure img {
+    width: 50%;
+}
+
+header nav ul {
+    display: none;
+}
+
+header nav div div.user-icon {
+    display: none;
+}
+
+header div form {
+    display: none;
 }
 
 /*Aplicando estilos al main*/
