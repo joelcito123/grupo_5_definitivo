@@ -19,11 +19,20 @@ ul a {
 /*Aplicando estilos al header*/
 header {
     background-color: #CCCCCC;
-    width: 100%;
+}
+
+header figure {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
 }
 
 header figure img {
-    width: 50%;
+    width: 100%;
+}
+
+header div div.bars {
+    order: 0;
 }
 
 header nav ul {
@@ -40,6 +49,40 @@ header div form {
 
 /*Aplicando estilos al main*/
 
+main {
+    text-align: center;
+    padding-top: 20px;
+}
+
+main h1 {
+    font-size: 50px;
+    max-width: 200px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+main form input, main form button {
+    background-color: #CCCCCC;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    height: 40px;
+    display: block;
+    margin: 20px auto;
+    padding-left: 15px;
+    font-size: 20px;
+    width: 250px;
+}
+
+main form button {
+    color: white;
+    background-color: #333333;
+}
 
 /*Aplicando estilos al footer*/
 
+footer {
+    display: none;
+}
