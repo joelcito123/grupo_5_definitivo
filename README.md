@@ -26,3 +26,8 @@ url de páginas:
 4- https://www.mercadolibre.com.ar/ elegida para el diseño del carrito de compras para celular.
 
 5- https://kravejerky.com/ por las funcionalidades de la pagina.
+
+
+Enlace al tablero de trabajo
+
+https://trello.com/b/pRze0uSZ/urbaneats-jujuy
