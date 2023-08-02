@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UrbanEats Jujuy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <img src="/images/urbaneats.ico" alt="Logo">
-        <div>Barra de búsqueda</div>
+        <div class="barra-busqueda">
+            <form action="/">
+                <input type="text" placeholder="Buscar">
+            </form>
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
         <nav>
             <ul>
                 <li>Menú</li>
@@ -17,10 +25,19 @@
             </ul>
             <ul>
                 <li>Login</li>
+                <div class="login-icon">
+                    <i class="fa-solid fa-right-to-bracket"></i> 
+                </div>
                 <li>Register</li>
+                <div class="user-icon">
+                    <i class="fa-regular fa-circle-user"></i>
+                </div>
             </ul>
         </nav>
-        <div>Lugar carrito de compras</div>
+        <p>Carrito de compras</p>
+        <div class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
     </header>
     <main>
         <section>
@@ -88,24 +105,25 @@
         </section>
     </main>
     <footer>
-        <p>Siguenos en nuestras redes sociales</p>
+        <p>Seguinos en nuestras redes sociales</p>
         <nav>
             <ul>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Twiter</li>
-                <li>no se me ocurre</li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://github.com/joelcito123/grupo_5_definitivo" target="_blank"><i class="fa-brands fa-github"></i> Github</a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i> Twiter</a></li>
             </ul>
         </nav>
         <p>Envíanos tu comentario</p>
         <nav>
             <ul>
-                <li>Whatsapp</li>
-                <li>Correo Electrónico</li>
+                <li><a href="#"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+                <li><a href="#"><i class="fa-regular fa-envelope"></i> Correo Electrónico</a></li>
             </ul>
         </nav>
         <p>Para más info de Jujuy</p>
         <p>url del gobierno de jujuy</p>
+        <p>© 2023 UrbanEats Jujuy - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>
