@@ -67,32 +67,3 @@ header div div.barra-busqueda form input {
 header div nav.menu ul li {
     margin-left: 10px;
 }
-
-/*Aplicando CSS al main*/
-
-main {
-    background-color: #EAEAEA;
-    max-width: 50%;
-    text-align: center;
-    margin: 20px auto;
-    padding-top: 15px;
-    border-radius: 15px;
-}
-
-main h1 {
-    margin-bottom: 20px;
-}
-
-main form {
-    text-align: center;
-    height: 270px;
-}
-
-main form input{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px
-
-}
-/*Aplicando CSS al footer*/
