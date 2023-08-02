@@ -1,88 +1,98 @@
-/*Selectores generales*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-ul {
-    list-style-type: none;
+.bars {
+    display: none;
 }
 
-ul a {
+a {
     text-decoration: none;
-    color: #000;
-}
-
-
-
-/*Aplicando estilos al header*/
-header {
-    background-color: #CCCCCC;
-}
-
-header figure {
-    display: inline-block;
-    width: 50%;
-    text-align: center;
-}
-
-header figure img {
-    width: 100%;
-}
-
-header div div.bars {
-    order: 0;
-}
-
-header nav ul {
-    display: none;
-}
-
-header nav div div.user-icon {
-    display: none;
-}
-
-header div form {
-    display: none;
-}
-
-/*Aplicando estilos al main*/
-
-main {
-    text-align: center;
-    padding-top: 20px;
-}
-
-main h1 {
-    font-size: 50px;
-    max-width: 200px;
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-}
-
-main form input, main form button {
-    background-color: #CCCCCC;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    height: 40px;
-    display: block;
-    margin: 20px auto;
-    padding-left: 15px;
-    font-size: 20px;
-    width: 250px;
-}
-
-main form button {
     color: white;
     background-color: #333333;
 }
 
-/*Aplicando estilos al footer*/
-
-footer {
-    display: none;
+ul {
+    list-style-type: none;
 }
+
+/*Aplicando CSS al header*/
+
+header {
+    background-color: #EAEAEA;
+}
+
+header div.container-header,
+header div nav.menu,
+header div nav.menu ul,
+header div nav.menu div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+header div figure {
+    width: 13%;
+}
+
+header div figure img {
+    width: 100%;
+}
+
+header div div.barra-busqueda {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 97px;
+    bottom: 2px;
+    color: #aeacac;
+}
+
+header div div.barra-busqueda form {
+    width: auto;
+}
+
+header div div.barra-busqueda form input {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    width: 70%;
+}
+
+header div nav.menu ul li {
+    margin-left: 10px;
+}
+
+/*Aplicando CSS al main*/
+
+main {
+    background-color: #EAEAEA;
+    max-width: 50%;
+    text-align: center;
+    margin: 20px auto;
+    padding-top: 15px;
+    border-radius: 15px;
+}
+
+main h1 {
+    margin-bottom: 20px;
+}
+
+main form {
+    text-align: center;
+    height: 270px;
+}
+
+main form input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px
+
+}
+/*Aplicando CSS al footer*/
