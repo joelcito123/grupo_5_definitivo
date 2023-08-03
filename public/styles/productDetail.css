@@ -18,6 +18,10 @@ ul {
     list-style-type: none;
 }
 
+img {
+    width: 75%;;
+}
+
 /*Aplicando CSS al header*/
 
 header {
@@ -66,4 +70,36 @@ header div div.barra-busqueda form input {
 
 header div nav.menu ul li {
     margin-left: 10px;
+}
+
+/*Aplicando CSS al main*/
+
+main section.pr1 {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.principal {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal img {
+    width: 95%;
+    height: 95%;
+}
+
+.detalles {
+    width: 50%;
+    padding: 5px;
+}
+
+/*Aplicando CSS al footer*/
+
+footer {
+    background-color: #333333;
+    color: #fff;
 }
