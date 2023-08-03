@@ -72,7 +72,8 @@ header div nav.menu ul li {
 
 main {
     background-color: #EAEAEA;
-    max-width: 50%;
+    max-width: 400px;
+    height: 470px;
     text-align: center;
     margin: 20px auto;
     padding-top: 15px;
@@ -85,7 +86,6 @@ main h1 {
 
 main form {
     text-align: center;
-    height: 270px;
 }
 
 main form input{
@@ -96,3 +96,8 @@ main form input{
 
 }
 /*Aplicando CSS al footer*/
+
+footer {
+    background-color: #333333;
+    color: #fff;
+}
