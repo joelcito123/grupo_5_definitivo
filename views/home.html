@@ -3,25 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanEats Jujuy</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <title>Document</title>
 </head>
 <body>
     <header>
         <img src="/images/urbaneats.ico" alt="Logo">
-        <div>Barra de búsqueda</div>
+        <div class="barra-busqueda">
+            <form action="/">
+                <input type="text" placeholder="Buscar">
+            </form>
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
         <nav>
             <ul>
-                <li>Menú</li>
-                <li>Pedir</li>
-                <li>Quienes somos</li>
+                <li><a href="#">Menú <i class="fa-solid fa-ellipsis"></i></a></li>
+                <li><a href="#">Pedir</a></li>
+                <li><a href="#">Quienes somos <i class="fa-solid fa-question"></i></a></li>
             </ul>
             <ul>
-                <li>Login</li>
-                <li>Register</li>
+                <li><a href="#">Login</a></li>
+                <div class="login-icon">
+                    <i class="fa-solid fa-right-to-bracket"></i> 
+                </div>
+                <li><a href="#">Register</a></li>
+                <div class="user-icon">
+                    <i class="fa-regular fa-circle-user"></i>
+                </div>
             </ul>
         </nav>
-        <div>Lugar carrito de compras</div>
+        <p>Carrito de compras</p>
+        <div class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <p>Ubicacion</p>
+        <div class="location-dot">
+            <p>Nos encontramos en Lorrego y Gorriti <i class="fa-solid fa-location-dot"></i></p>
+        </div>
     </header>
     <main>
         <section>
@@ -36,7 +56,7 @@
                 <img src="/images/239857.jpg" width="300" alt="Empanadas">
                 <p>$1500 por docena</p>
                 <p>20% off</p>
-                <p>Empanadas</p>
+                <p>Empanadas de Pollo/Carne</p>
             </article>
             <article>
                 <img src="/images/locro-946-x-568-700x420.jpg" width="300" alt="Locro">
@@ -49,7 +69,7 @@
             <h2>Lo mejor de la casa</h2>
             <article>
                 <img src="/images/1508255189526.jpg" width="300" alt="Tamales">
-                <p>$2000 por 10</p>
+                <p>$3500 la docena</p>
                 <p>15% off</p>
                 <p>Tamales</p>
             </article>
@@ -72,41 +92,42 @@
                 <img src="/images/GASTRONOMIA-700-X-420.jpg" width="300" alt="gastronomia">
                 <p>$2000 por 10</p>
                 <p>15% off</p>
-                <p>?</p>
+                <p>Combo Tamales/Empanadas + Plato de Locro</p>
             </article>
             <article>
                 <img src="/images/20220102-Gastronomia-2.jpg" width="300" alt="gastronomia 2">
-                <p>$1500 por docena</p>
+                <p>$1500/Plato</p>
                 <p>20% off</p>
-                <p>2?</p>
+                <p>Locro</p>
             </article>
             <article>
                 <img src="/images/tamales-946-x-568-700x420.jpg" width="300" alt="tamal?">
                 <p>$1100</p>
                 <p>20% off</p>
-                <p>tamal?</p>
+                <p>Tamales</p>
             </article>
         </section>
     </main>
     <footer>
-        <p>Siguenos en nuestras redes sociales</p>
+        <p>Seguinos en nuestras redes sociales</p>
         <nav>
             <ul>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Twiter</li>
-                <li>no se me ocurre</li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://github.com/joelcito123/grupo_5_definitivo" target="_blank"><i class="fa-brands fa-github"></i> Github</a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i> Twiter</a></li>
             </ul>
         </nav>
         <p>Envíanos tu comentario</p>
         <nav>
             <ul>
-                <li>Whatsapp</li>
-                <li>Correo Electrónico</li>
+                <li><a href="#"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+                <li><a href="#"><i class="fa-regular fa-envelope"></i> Correo Electrónico</a></li>
             </ul>
         </nav>
         <p>Para más info de Jujuy</p>
         <p>url del gobierno de jujuy</p>
+        <p>© 2023 UrbanEats Jujuy - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>
