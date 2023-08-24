@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bars {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    background-color: #333333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*Aplicando CSS al header*/
+
+header {
+    background-color: #EAEAEA;
+}
+
+header div.container-header,
+header div nav.menu,
+header div nav.menu ul,
+header div nav.menu div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+header div figure {
+    width: 13%;
+}
+
+header div figure img {
+    width: 100%;
+}
+
+header div div.barra-busqueda {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 97px;
+    bottom: 2px;
+    color: #aeacac;
+}
+
+header div div.barra-busqueda form {
+    width: auto;
+}
+
+header div div.barra-busqueda form input {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    width: 70%;
+}
+
+header div nav.menu ul li {
+    margin-left: 10px;
+}
+
+/*Aplicando CSS al main*/
+
+main {
+    background-color: #EAEAEA;
+    max-width: 400px;
+    height: 470px;
+    text-align: center;
+    margin: 20px auto;
+    padding-top: 15px;
+    border-radius: 15px;
+}
+
+main h1 {
+    margin-bottom: 20px;
+}
+
+main form {
+    text-align: center;
+}
+
+main form input{
+    display: block;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    height: 30px;
+    background-color: #aeacac;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-decoration-color: black;
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    background-color: #aeacac;
+    cursor: pointer;
+    width: 40%;
+    height: 30px;
+    text-align: center;
+}
+/*Aplicando CSS al footer*/
+
+footer {
+    background-color: #333333;
+    color: #fff;
+}
