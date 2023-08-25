@@ -22,6 +22,8 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, './views/register.html'));
 });
 
+app.set('view engine', 'ejs')
+
 
 app.listen(3000, () => {
     console.log('servidor corriendo en el puerto 3000');
