@@ -7,19 +7,19 @@ const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/home.html'));
+    res.render(path.join(__dirname, './views/home'));
 });
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/login.html'));
+    res.render(path.join(__dirname, './views/login'));
 });
 app.get('/productCart', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/productCart.html'));
+    res.render(path.join(__dirname, './views/productCart'));
 });
 app.get('/productDetail', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/productDetail.html'));
+    res.render(path.join(__dirname, './views/productDetail'));
 });
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/register.html'));
+    res.render(path.join(__dirname, './views/register'));
 });
 
 app.set('view engine', 'ejs')
