@@ -18,6 +18,15 @@ ul {
     list-style-type: none;
 }
 
+:root {
+    --Gris-claro: #aeacac;
+    --Gris-oscuro: #666;
+    --Gris-claro2: #d7d7d7;
+    --Gris-oscuro2: #333333;
+    --Blanco: #fff;
+
+}
+
 /*Aplicando CSS al header*/
 
 header {
@@ -69,35 +78,71 @@ header div nav.menu ul li {
 }
 
 /*Aplicando CSS al main*/
-
-main {
-    background-color: #EAEAEA;
-    max-width: 400px;
-    height: 470px;
+ main {
     text-align: center;
+    padding-bottom: 40px;
+    margin-bottom: 60px;
+ }
+
+.titulo {
     margin: 20px auto;
-    padding-top: 15px;
-    border-radius: 15px;
+    width: 50%;
+    font-size: 37px;
 }
 
-main h1 {
-    margin-bottom: 20px;
-}
+ .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+ }
 
-main form {
+.form-container input {
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid var(--Gris-oscuro2);
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--Gris-claro2);
+    margin-bottom: 30px;
+    width: 75%;
+    font-size: 24px;
+ }
+
+ .form-container input::placeholder {
+    color: var(--Gris-oscuro2);
     text-align: center;
-}
+ }
 
-main form input{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px
-
-}
+ .btn {
+  height: 40px;
+  border: none;
+  width: 75%;
+  font-size: 24px;
+  background-color: var(--Gris-oscuro2);
+  border-radius: 10px;
+  color: var(--Blanco);
+ }
 /*Aplicando CSS al footer*/
 
 footer {
     background-color: #333333;
     color: #fff;
+}
+
+@media (min-width: 480px) {
+  main {
+    width: 90%;
+    max-width: 500px;
+    border: solid 1px var(--Gris-oscuro2);
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+  }
+
+  .titulo {
+    width: auto;
+  }
 }
