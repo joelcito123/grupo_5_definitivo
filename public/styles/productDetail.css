@@ -3,4 +3,87 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: purple;
+}
 /*Aplicando CSS al main*/
+
+main{
+    background-color: purple; 
+    width: 80vw;
+    margin: 0 auto;
+}
+
+img{
+    width: 100%;
+}
+h1{
+    text-align: center;
+    padding: 20px;
+}
+
+div.producto-principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.producto-principal figure img{
+    border: 1px solid black;
+}
+div.detalles{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: rgba(255, 0, 179, 0.486);
+}
+
+div.botones{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+div.botones button{
+    width: 40%;
+    color: white;
+    background-color: rgba(255, 0, 179, 0.486);
+    border: 1px solid black;
+}
+p.descripcion{
+    padding: 5px;
+    color: white;
+}
+p.precio{
+    padding: 5px;
+    color: white;
+}
+
+div.producto-secundario{
+    display: flex;
+    flex-direction: column;
+}
+
+div.producto-secundario figure{
+    margin: 20px;
+}
+
+
+div.producto-secundario figure img{
+    border: 1px solid black;
+}
+
+@media(min-width: 361px){
+    /*Main CSS*/
+    div.producto-secundario{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    div.producto-secundario img{
+        width: 43%;
+    }
+}
