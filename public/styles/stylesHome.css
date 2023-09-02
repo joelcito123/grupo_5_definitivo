@@ -4,12 +4,8 @@
     box-sizing: border-box;
 }
 /*Main CSS*/
-
 main{
     background-color: purple;
-}
-img{
-    width: 80%;
 }
 
 div.productos{
@@ -21,14 +17,17 @@ div.productos{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 10px;
 }
 
 article .descripcion{
-    width: 80%;
+    width: 90%;
+    height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     border: 1px solid black;
     background-color: rgba(255, 0, 179, 0.486);
@@ -37,6 +36,7 @@ article .descripcion{
 
 article img{
     border: 1px solid black;
+    width: 90%;
 }
 
 h2{
@@ -47,7 +47,7 @@ h2{
 
 p.precio{
     font-size: 20px;
-    color:rgb(255, 255, 255);
+    color:rgb(0, 255, 115);
 }
 
 p.oferta{
@@ -57,4 +57,42 @@ p.oferta{
 p.nombre{
     font-size: 15px;
     color: rgb(255, 255, 255);
+}
+
+@media(min-width: 361px){
+    div.productos{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .productos article{
+        width: 44%;
+    }
+    article img{
+        height: 180px;
+        object-fit: cover;
+    }
+}
+
+@media(min-width: 769px){
+    .productos article{
+        width: 30%;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+    
+    p.precio{
+        font-size: 25px;
+    }
+    
+    p.oferta{
+        display: none;
+    }
+    
+    p.nombre{
+        font-size: 15px;
+    }
 }
