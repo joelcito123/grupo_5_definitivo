@@ -17,6 +17,8 @@ app.get('/login', userRouter);
 app.use('/productCart', mainRouter);
 app.get('/productDetail', productRouter);
 app.get('/register', userRouter);
+app.get('/edicion', productRouter);
+app.get('/creacion', productRouter)
 
 
 
