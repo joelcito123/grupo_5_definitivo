@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de edicion o creacion de producto</title>
+    <link rel="stylesheet" href="/styles/header.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <%- include('./partials/header')%>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Formulario de edició de producto</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <form action="/products/edit/¿?" method="___">
+                    <div class="row product-detail">
+                        <div class="col-12 col-md-6">
+                            <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" id="price" name="price" placeholder="Precio del producto" class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="color" id="color" name="color" placeholder="Colores" class="form-input">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="category" class="form-label">Categoría:</label>
+                            <select name="category" id="category" class="form-input">
+                                <option value="">Elegí</option>
+                                <option value="in-sale">En oferta</option>
+                                <option value="visited" >Últimos agregados</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="description" id="description" class="form-input" placeholder="Descripcion del producto"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="buy-now-button">Guardar producto</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+        </div>
+    </main>
+</body>
+</html>
