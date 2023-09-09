@@ -2,62 +2,29 @@
 <html lang="es">
 
 <head>
-    <%- include('./partials/head')%>;
+    <%- include('./partials/head') %>;
     <title>UrbanEats - Detalle producto</title>
     <link rel="stylesheet" href="/styles/productDetail.css">
 </head>
 
 
 <body>
-    <%- include('./partials/header')%>
+    <%- include('./partials/header') %>
         <main>
+            <h1>Detalle del producto: <%= product.name %></h1>
             <section>
-                <h1>Humita</h1>
+                <h1><%= product.name %></h1>
                 <div class="producto-principal">
                     <figure class="principal">
-                        <img src="/images/humita-946-x-568-700x420.jpg" alt="Producto">
+                        <img src="/images/<%= product.image %>" alt="imagen del producto">
                     </figure>
                     <div class="detalles">
                         <div class="botones">
                             <button>Lo quiero ya!!!</button>
                             <button>Agregar al carrito</button>
                         </div>
-                        <p class="descripcion">Que linda humita , clásica de los jujeños , disfruten</p>
-                        <p class="precio">$1200</p>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h2>Relacionado</h2>
-                <div class="producto-secundario">
-                    <div>
-                        <img src="/images/paso_a_paso_para_realizar_guiso_de_lentejas.jpg" alt="producto-1">
-                    </div>
-                    <div>
-                        <img src="/images/20220102-Gastronomia-2.jpg" alt="producto-2">
-                    </div>
-                    <div>
-                        <img src="/images/239857.jpg" alt="producto-3">
-                    </div>
-                    <div>
-                        <img src="/images/carne-de-llama-946-x-568-700x420.jpg" alt="producto-4">
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h2>Recomendados</h2>
-                <div class="producto-secundario">
-                    <div>
-                        <img src="/images/paso_a_paso_para_realizar_guiso_de_lentejas.jpg" alt="producto-1">
-                    </div>
-                    <div>
-                        <img src="/images/20220102-Gastronomia-2.jpg" alt="producto-2">
-                    </div>
-                    <div>
-                        <img src="/images/239857.jpg" alt="producto-3">
-                    </div>
-                    <div>
-                        <img src="/images/carne-de-llama-946-x-568-700x420.jpg" alt="producto-4">
+                        <p class="descripcion"><%= product.description %></p>
+                        <p class="precio">$<%= product.price %></p>
                     </div>
                 </div>
             </section>
