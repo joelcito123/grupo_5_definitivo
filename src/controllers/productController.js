@@ -24,9 +24,16 @@ const productController = {
     edit: (req, res) => {
         const id = req.params.id;
         const productToEdit = products.find(p => p.id == id);
+
         res.render('formulario-edicion-producto', {
             productToEdit,
         });
+    },
+    store: (req, res) => {
+        res.send('No hay fallos :) formulario recibido correctamente');
+    },
+    update: (req, res) => {
+        res.send('No hay fallos :) formulario recibido correctamente suu');
     }
 }
 

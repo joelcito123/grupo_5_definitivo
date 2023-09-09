@@ -11,7 +11,7 @@
     <%- include('./partials/header')%>
         <main>
             <h2 class="title">Formulario de edició de producto</h2>
-            <form action="" method="">
+            <form action="/products/<%= productToEdit.id %>" method="POST">
                 <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
                 <input type="text" id="price" name="price" placeholder="Precio del producto" class="form-input">
                 <label for="color" class="color-label">Color:</label>
