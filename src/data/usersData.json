@@ -6,5 +6,21 @@
         "email": "pepegrillo@gmail.com",
         "contraseña": 1234,
         "imagen": "URL de imagen"
+    },
+    {
+        "id": 2,
+        "nombre": "Elem",
+        "apellido": "Hentos",
+        "email": "elemhentos@gmail.com",
+        "contraseña": 5678,
+        "imagen": "URL de imagen"
+    },
+    {
+        "id": 3,
+        "nombre": "alabados",
+        "apellido": "elñseos",
+        "email": "pepegrillo@gmail.com",
+        "contraseña": 91011,
+        "imagen": "URL de imagen"
     }
 ]
