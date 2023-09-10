@@ -30,10 +30,13 @@ const productController = {
         });
     },
     store: (req, res) => {
-        res.send('No hay fallos :) formulario recibido correctamente');
+        res.send('viajando por POST');
     },
     update: (req, res) => {
-        res.send('No hay fallos :) formulario recibido correctamente suu');
+        res.send('viajando por PUT');
+    },
+    delete: (req, res) => {
+        res.send('viajando por DELETE');
     }
 }
 

@@ -3,10 +3,12 @@ const path = require('path');
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/productos');
 const userRouter = require ('./routes/usuario');
+const methodOverride = require('method-override');
 
 const app = express();
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
+app.use(methodOverride('_method'))
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');

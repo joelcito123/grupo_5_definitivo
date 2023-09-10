@@ -3,7 +3,7 @@
 
 <head>
     <%- include('./partials/head')%>
-    <title>Formulario de edicion o creacion de producto</title>
+    <title>Formulario de edición</title>
     <link rel="stylesheet" href="/styles/formulario-edicion.css">
 </head>
 
@@ -11,20 +11,20 @@
     <%- include('./partials/header')%>
         <main>
             <h2 class="title">Formulario de edició de producto</h2>
-            <form action="/products/<%= productToEdit.id %>" method="POST">
+            <p>Editando: <%= productToEdit.name %></p>
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
                 <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
                 <input type="text" id="price" name="price" placeholder="Precio del producto" class="form-input">
-                <label for="color" class="color-label">Color:</label>
-                <input type="color" id="color" name="color" placeholder="Colores" class="button2 especial">
                 <label for="category" class="form-label">Categoría:</label>
                 <select name="category" id="category" class="form-input">
                     <option value="">Elegí</option>
-                    <option value="in-sale">En oferta</option>
-                    <option value="visited">Últimos agregados</option>
+                    <option value="in-sale">Desayuno</option>
+                    <option value="visited">Plato Principal</option>
+                    <option value="in-sale">Postre</option>
                 </select>
                 <textarea name="description" id="description" class="form-input"
                     placeholder="Descripcion del producto"></textarea>
-                <button type="submit" class="button1">Guardar producto</button>
+                <button type="submit" class="button1">Editar producto</button>
             </form>
         </main>
         <%- include('./partials/footer')%>

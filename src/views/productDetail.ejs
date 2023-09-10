@@ -27,6 +27,9 @@
                         <p class="precio">$<%= product.price %></p>
                     </div>
                 </div>
+                <form action="/products/<%= product.id %>?_method=DELETE" method="PUT">
+                    <buttona type="submit" class="button-delete">Eliminar</buttona>
+                </form>
             </section>
         </main>
         <%- include('./partials/footer')%>

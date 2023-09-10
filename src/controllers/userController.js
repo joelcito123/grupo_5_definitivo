@@ -4,6 +4,12 @@ const userController = {
     },
     register: (req ,res) => {
         res.render('register')
+    },
+    loged: (req, res) => {
+        res.send('Test');
+    },
+    registed: (req, res) => {
+        res.send('Otro test');
     }
 }
 
