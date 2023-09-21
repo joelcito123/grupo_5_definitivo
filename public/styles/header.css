@@ -10,7 +10,12 @@
     --Gris-claro2: #d7d7d7;
     --Gris-oscuro2: #333333;
     --Blanco: #fff;
-
+    /*Paleta de colores*/
+    --Violeta: #320e4b;
+    --Gris-a: #7c7c7c;
+    --Celeste: #a9f8fb;
+    --Lavanda: #eee5e9;
+    --Naranja: #cf5c36;
 }
 
 .menu {
@@ -57,8 +62,7 @@ figure img.logo {
 
 .inpt-buscar {
     height: 40px;
-    width: 200px;
-    max-width: 100%;
+    width: 100%;
     border: none;
     border-radius: 10px;
     padding-left: 5px;
@@ -72,4 +76,44 @@ figure img.logo {
 
 .user-icon {
     display: none;
+}
+
+@media (min-width: 361px){
+    .bars-cnt,
+    .cart-icon {
+        display: none;
+    }
+
+    .nav-container {
+        width: 100%;
+    }
+    
+    .menu {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 10px;
+    }
+
+    .menu li {
+        list-style-type: none;
+    }
+
+    .menu li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .container-header {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 780px) {
+    .menu {
+        font-size: 25px;
+    }
 }

@@ -3,26 +3,28 @@
 
 <head>
     <%- include('./partials/head')%>
-    <title>Formulario de creacion</title>
-    <link rel="stylesheet" href="/styles/formulario-creacion.css">
+        <title>Formulario de creacion</title>
+        <link rel="stylesheet" href="/styles/formulario-creacion.css">
 </head>
 
 <body>
     <%- include('./partials/header')%>
         <main>
             <h2 class="title">Formulario de creación de productos</h2>
-            <form method="POST" action="/products">
-                <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
+            <form action="/products" method="POST">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
+                </div>
                 <input type="text" id="price" name="price" placeholder="Precio del producto" class="form-input">
                 <label for="category" class="form-label">Categoría:</label>
                 <select name="category" id="category" class="form-input">
                     <option value="">Elegí</option>
-                    <option value="in-sale">Desayuno</option>
-                    <option value="visited">Plato principal</option>
+                    <option value="desayuno">Desayuno</option>
+                    <option value="plato-rincipal">Plato principal</option>
                 </select>
                 <textarea name="description" id="description" class="form-input"
                     placeholder="Descripcion del producto"></textarea>
-                <button type="submit" class="buy-now-button">Guardar producto</button>
+                <button type="submit">Guardar producto</button>
             </form>
         </main>
         <%- include('./partials/footer')%>

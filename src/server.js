@@ -8,7 +8,9 @@ const methodOverride = require('method-override');
 const app = express();
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -20,6 +22,6 @@ app.use('/usuario', userRouter);
 
 
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('servidor corriendo en el puerto 3000');
 });

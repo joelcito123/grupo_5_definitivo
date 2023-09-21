@@ -5,7 +5,7 @@ const productsFilePath = path.join(__dirname, '../data/productsData.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productController = {
-    index: (req ,res) => {
+    index: (req, res) => {
         res.render('products', {
             products,
         });
@@ -30,13 +30,27 @@ const productController = {
         });
     },
     store: (req, res) => {
-        res.send('viajando por POST');
+        const productToCreate = req.body;
+        const imageProduct = {
+            ...productToCreate,
+            image: 'imagen-por-defecto.png',
+            id: new Date().getTime(),
+        };
+        products.push(imageProduct);
+
+        fs.writeFileSync(productsFilePath, JSON.stringify(products))
+
+        res.send('Creaste un nuevo producto');
     },
     update: (req, res) => {
         res.send('viajando por PUT');
     },
     delete: (req, res) => {
-        res.send('viajando por DELETE');
+        const id = +req.params.id;
+        const productToDelete = products.filter(producto => producto.id !== id);
+
+        fs.writeFileSync(productsFilePath, JSON.stringify(productToDelete));
+        res.send('Eliminé el producto');
     }
 }
 
