@@ -1,26 +1,34 @@
 [
     {
         "id": 1,
-        "nombre": "Pepe",
-        "apellido": "Grillo",
+        "name": "Pepe",
+        "last-name": "Grillo",
         "email": "pepegrillo@gmail.com",
-        "contraseña": 1234,
-        "imagen": "URL de imagen"
+        "password": 1234,
+        "image": "URL de image"
     },
     {
         "id": 2,
-        "nombre": "Elem",
-        "apellido": "Hentos",
+        "name": "Elem",
+        "last-name": "Hentos",
         "email": "elemhentos@gmail.com",
-        "contraseña": 5678,
-        "imagen": "URL de imagen"
+        "password": 5678,
+        "image": "URL de image"
     },
     {
         "id": 3,
-        "nombre": "alabados",
-        "apellido": "elñseos",
+        "name": "alabados",
+        "last-name": "elñseos",
         "email": "pepegrillo@gmail.com",
-        "contraseña": 91011,
-        "imagen": "URL de imagen"
+        "password": 91011,
+        "image": "URL de image"
+    },
+    {
+        "name": "sopa",
+        "last-name": "majada",
+        "email": "casedigrim@gmail.com",
+        "password": "234",
+        "image": "image-1695510797842.jpg",
+        "id": 1695510797851
     }
 ]

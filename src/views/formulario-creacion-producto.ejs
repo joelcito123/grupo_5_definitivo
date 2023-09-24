@@ -11,7 +11,7 @@
     <%- include('./partials/header')%>
         <main>
             <h2 class="title">Formulario de creación de productos</h2>
-            <form action="/products" method="POST">
+            <form action="/products" method="POST" enctype="multipart/form-data">
                 <div>
                     <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
                 </div>
@@ -24,6 +24,7 @@
                 </select>
                 <textarea name="description" id="description" class="form-input"
                     placeholder="Descripcion del producto"></textarea>
+                    <input type="file" name="image" id="image">
                 <button type="submit">Guardar producto</button>
             </form>
         </main>

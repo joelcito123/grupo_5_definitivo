@@ -11,11 +11,12 @@
     <%- include('./partials/header')%>
     <main>
         <h1 class="titulo">Crea tu cuenta</h1>
-        <form action="/usuario/register" method="POST" class="form-container">
-            <input type="text" placeholder="Nombre de Pila">
-            <input type="text" placeholder="Apellido">
-            <input type="email" placeholder="Correo Electrónico">
-            <input type="password" placeholder="Contraseña">
+        <form action="/usuario/register" method="POST" enctype="multipart/form-data">
+            <input type="text" placeholder="Nombre de Pila" name="name">
+            <input type="text" placeholder="Apellido" name="last-name">
+            <input type="email" placeholder="Correo Electrónico" name="email">
+            <input type="password" placeholder="Contraseña" name="password">
+            <input type="file" name="image" id="image" >
             <button type="submit" class="btn">Empezar a ordenar</button>
         </form>
     </main>

@@ -33,7 +33,7 @@ const productController = {
         const productToCreate = req.body;
         const imageProduct = {
             ...productToCreate,
-            image: 'imagen-por-defecto.png',
+            image: req.file.filename,
             id: new Date().getTime(),
         };
         products.push(imageProduct);
@@ -43,7 +43,16 @@ const productController = {
         res.send('Creaste un nuevo producto');
     },
     update: (req, res) => {
-        res.send('viajando por PUT');
+        const id = req.params.id;
+        const productToEdit = products.find(producto => producto.id == id);
+
+        const producta = req.body;
+        products.push(producta)
+        products.pop(productToEdit);
+        const datosJson = JSON.stringify(products);
+
+        fs.writeFileSync(productsFilePath, datosJson);
+        res.send('producto editado');
     },
     delete: (req, res) => {
         const id = +req.params.id;
