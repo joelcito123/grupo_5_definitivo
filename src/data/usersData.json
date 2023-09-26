@@ -1,10 +1,10 @@
 [
-    {
-        "name": "sopa",
-        "last_name": "majada",
-        "email": "casedigrim@gmail.com",
-        "password": "$2a$10$Qoc2IYIDHVsS38.oxS0fVuvArnoKTQlIcNEeVf.YtT09Vgml52Lqu",
-        "image": "image-1695579561577.jpg",
-        "id": 1695579561999
-    }
+ {
+  "id": 1695752216596,
+  "name": "Daniel",
+  "last_name": "Ramos",
+  "email": "casedigrim@gmail.com",
+  "password": "$2a$10$qDz7KSKAH36CpESCxC/IK.qj2c7KBffmpqX.VYCnktEdAwTXgOJ7C",
+  "image": "image-1695752216585.jpg"
+ }
 ]

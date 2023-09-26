@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs')
 const usersFilePath = path.join(__dirname, '../data/usersData.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
+
 const userController = {
     login: (req, res) => {
         res.render('login')
@@ -13,37 +14,44 @@ const userController = {
         res.render('register')
     },
     loged: (req, res) => {
-        let usuario;
+        let users;
         if (usuarios == "") {
-            usuario = [];
+            users = [];
         } else {
-            usuario = usuarios;
+            users = usuarios;
         };
+
+        let usuarioALoguearse;
         
-        for (let i = 0; i < usuarios.length; i++) {
-            if (req.body.email == usuario[i].email && bcrypt.compareSync(req.body.password, usuario[i].password)){
-                res.send('Te encontré');
+        for (let i = 0; i < users.length; i++) {
+            if (req.body.email == users[i].email && bcrypt.compareSync(req.body.password, users[i].password)){
+                usuarioALoguearse = users[i];
+                break;
             }
         }
 
-        res.send('error');
+        req.session.usuarioLogueado = usuarioALoguearse;
+
+        res.render('login');
     },
     registed: (req, res) => {
-        const nuevoUsuario = req.body;
-        const usuario = {
+        
+        let usuario = {
+            id: new Date().getTime(),
             name: req.body.name,
             last_name: req.body.last_name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
             image: req.file.filename,
-            id: new Date().getTime(),
         }
-
         usuarios.push(usuario);
         
-        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios));
+        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, ' '));
 
-        res.send('registrado');
+        res.redirect('login');
+    },
+    profile: (req, res) => {
+        res.render('userProfile')
     }
 }
 
