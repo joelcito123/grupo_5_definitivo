@@ -32,7 +32,7 @@ const userController = {
 
         req.session.usuarioLogueado = usuarioALoguearse;
 
-        res.redirect('/');
+        res.redirect('login');
     },
     registed: (req, res) => {
         
