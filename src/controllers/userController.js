@@ -25,8 +25,8 @@ const userController = {
         
         for (let i = 0; i < users.length; i++) {
             if (req.body.email == users[i].email && bcrypt.compareSync(req.body.password, users[i].password)){
+                res.redirect('/')
                 usuarioALoguearse = users[i];
-                break;
             }
         }
 
