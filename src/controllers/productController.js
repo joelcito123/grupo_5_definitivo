@@ -44,15 +44,17 @@ const productController = {
     },
     update: (req, res) => {
         const id = req.params.id;
-        const productToEdit = products.find(producto => producto.id == id);
-
-        const producta = req.body;
-        products.push(producta)
-        products.pop(productToEdit);
-        const datosJson = JSON.stringify(products);
-
-        fs.writeFileSync(productsFilePath, datosJson);
-        res.send('producto editado');
+		products.forEach((product) => {
+			if(product.id == id){
+				product.name = req.body.name,
+                product.price = req.body.price,
+                product.discount = req.body.discount,
+                product.category = req.body.category,
+                product.description = req.body.description
+			}
+		});
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        res.redirect("/products");
     },
     delete: (req, res) => {
         const id = +req.params.id;
