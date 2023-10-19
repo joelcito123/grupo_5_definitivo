@@ -1,3 +1,4 @@
+/*
 function authMiddleware(req, res, next) {
     if(req.session.usuarioLogueado != undefined) {
         next();
@@ -7,3 +8,4 @@ function authMiddleware(req, res, next) {
 }
 
 module.exports = authMiddleware;
+*/

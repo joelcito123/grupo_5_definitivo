@@ -40,7 +40,7 @@ const productController = {
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products))
 
-        res.send('Creaste un nuevo producto');
+        res.redirect("/products");
     },
     update: (req, res) => {
         const id = req.params.id;

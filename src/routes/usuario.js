@@ -20,11 +20,12 @@ const upload = multer({
     storage,
 })
 
-router.get('/login', guestMiddleware ,userController.login);
+router.get('/login', /*guestMiddleware*/ userController.login);
 router.post('/login', userController.loged);
-router.get('/register', guestMiddleware, userController.register);
+router.get('/register', /*guestMiddleware*/ userController.register);
 router.post('/register', upload.single('image'), userController.registed);
-router.get('/profile', authMiddleware ,userController.profile);
+router.get('/profile', /*authMiddleware*/ userController.profile);
+/*
 router.get('/check', (req, res) => {
      if(req.session.usuarioLogueado == undefined) {
         res.send('No estás logueado')
@@ -32,5 +33,5 @@ router.get('/check', (req, res) => {
         res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
      }
 })
-
+*/
 module.exports = router;
