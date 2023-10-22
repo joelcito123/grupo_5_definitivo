@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "name": "Humitas",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "name": "sopa majada",
+        "description": "adasdfasdfsdf",
         "image": "humitas.jpg",
-        "category": "Plato principal",
-        "price": 2000
+        "category": "desayuno",
+        "price": "2349"
     },
     {
         "id": 2,
@@ -54,5 +54,13 @@
         "description": "asdfasdfadsf",
         "image": "image-1695761772082.jpg",
         "id": 1695761772093
+    },
+    {
+        "name": "gg",
+        "price": "21",
+        "category": "desayuno",
+        "description": "gg",
+        "image": "image-1697746158448.jpg",
+        "id": 1697746158455
     }
 ]
