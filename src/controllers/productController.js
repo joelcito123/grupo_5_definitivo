@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsData.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productController = {
     index: (req, res) => {
@@ -57,11 +57,10 @@ const productController = {
         res.redirect("/products");
     },
     delete: (req, res) => {
-        const id = +req.params.id;
-        const productToDelete = products.filter(producto => producto.id !== id);
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(productToDelete));
-        res.send('Eliminé el producto');
+        let id = req.params.id;
+        products = products.filter(producto => producto.id != id);
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        res.redirect("/products");
     }
 }
 
