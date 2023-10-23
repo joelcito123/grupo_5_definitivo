@@ -4,10 +4,12 @@ module.exports = (sequelize, dataTypes) => {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            allowNull: false,
+            autoIncrement: true,
         },
         name: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull: false,
         }
     };
     let config = {
@@ -16,6 +18,13 @@ module.exports = (sequelize, dataTypes) => {
     }
     
     const Category = sequelize.define(alias, cols, config);
+
+    Category.associate = (models) => {
+        Category.hasMany(models.Products, {
+            as: "productos",
+            foreignKey: "category_id"
+        })
+    }
 
     return Category;
 }

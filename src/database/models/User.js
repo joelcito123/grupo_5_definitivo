@@ -4,16 +4,20 @@ module.exports = (sequelize, dataTypes) => {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
-        firstName: {
+        first_name: {
             type: dataTypes.STRING,
+            allowNull: false
         },
-        lastName: {
+        last_name: {
             type: dataTypes.STRING,
+            allowNull: false
         },
-        hasedPassword: {
+        hased_password: {
             type: dataTypes.STRING,
+            allowNull: false
         }
     };
     let config = {
@@ -22,6 +26,13 @@ module.exports = (sequelize, dataTypes) => {
     }
     
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = (models) => {
+        User.belongsTo(models.Orders, {
+            as: "pedidos",
+            foreignKey: "order_id"
+        })
+    }
 
     return User;
 }
