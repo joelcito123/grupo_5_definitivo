@@ -7,11 +7,21 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productController = {
     index: (req, res) => {
-        db.Product.findAll()
+        /*db.Order.findAll({
+            include: ["productos"]
+        }).then(products => {
+            res.send(products);
+        })
+        */
+        /*db.Product.findAll({
+            include: ["categories"]
+        })
+        
             .then(products => {
-                res.render('products', {products})
+                //res.render('products', {products})
+                res.send(products);
             })
-        /*
+        */
         db.Product.findAll()
             .then(resultados => {
                 res.send(resultados);
@@ -22,7 +32,6 @@ const productController = {
         res.render('products', {
             products,
         });
-        */
     },
     detail: (req, res) => {
         const id = req.params.id;

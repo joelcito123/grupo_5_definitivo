@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Users"
+    let alias = "User"
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false
         },
-        hased_password: {
+        hashed_password: {
             type: dataTypes.STRING,
             allowNull: false
         }
@@ -28,8 +28,8 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias, cols, config);
 
     User.associate = (models) => {
-        User.belongsTo(models.Orders, {
-            as: "pedidos",
+        User.belongsTo(models.Order, {
+            as: "orders",
             foreignKey: "order_id"
         })
     }
