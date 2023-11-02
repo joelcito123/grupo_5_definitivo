@@ -14,22 +14,12 @@ const productController = {
             order: [
                 ["id", "ASC"]
             ]
+        }).then(products => {
+            res.render('products', { products })
+            res.send(products);
+        }).catch(error => {
+            console.log(error);
         })
-            .then(products => {
-                //res.render('products', {products})
-                res.send(products);
-            })
-        */
-        db.Product.findAll()
-            .then(resultados => {
-                res.send(resultados);
-            })
-            .catch(e => {
-                console.log(e);
-            }) 
-        res.render('products', {
-            products,
-        });
     },
     detail: (req, res) => {
         const id = req.params.id;
@@ -47,7 +37,7 @@ const productController = {
     create: (req, res) => {
         db.Category.findAll()
             .then(categories => {
-                res.render("formulario-creacion-producto", {categories});
+                res.render("formulario-creacion-producto", { categories });
             }).catch(error => {
                 console.log(error);
             })
@@ -59,7 +49,7 @@ const productController = {
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
-            image: req.file.filename, 
+            image: req.file.filename,
         }).then(() => {
             res.redirect("/products");
         }).catch((error) => {
@@ -78,15 +68,15 @@ const productController = {
 
     update: (req, res) => {
         // const id = req.params.id;
-		// products.forEach((product) => {
-		// 	if(product.id == id){
-		// 		product.name = req.body.name,
+        // products.forEach((product) => {
+        // 	if(product.id == id){
+        // 		product.name = req.body.name,
         //         product.price = req.body.price,
         //         product.discount = req.body.discount,
         //         product.category = req.body.category,
         //         product.description = req.body.description
-		// 	}
-		// });
+        // 	}
+        // });
         // fs.writeFileSync(productsFilePath, JSON.stringify(products));
         db.Product.update({
             name: req.body.name,
@@ -98,7 +88,7 @@ const productController = {
                 id: req.params.id,
             }
         });
-        
+
         res.render("/products");
     },
 
