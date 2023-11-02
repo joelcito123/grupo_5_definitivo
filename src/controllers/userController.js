@@ -16,7 +16,7 @@ const userController = {
             res.send(users);
         })
         */
-        //res.render('login')
+        res.render('login')
     },
     register: (req ,res) => {
         res.render('register')
