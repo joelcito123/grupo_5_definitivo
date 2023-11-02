@@ -10,14 +10,14 @@
     <main>
         <h1>Todos los productos</h1>
         <section>
-            <% products.forEach(product => { %>
-                <a href="/products/detail/<%= product.id %>">
+            <% productos.forEach(producto => { %>
+                <a href="/products/detail/<%= producto.id %>">
                     <figure>
-                        <img src="/images/products/<%= product.image %>" alt="Imagen del producto">
+                        <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
                     </figure>
                     <article>
-                        <p>$<%= product.name %></p>
-                        <p>$<%= product.price %></p>
+                        <p>$<%= producto.name %></p>
+                        <p>$<%= producto.price %></p>
                     </article>
                 </a>
             <% }) %>
