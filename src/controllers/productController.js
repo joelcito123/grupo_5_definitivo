@@ -1,22 +1,51 @@
 const fs = require('fs');
 const path = require('path');
+const db = require("../database/models");
 
 const productsFilePath = path.join(__dirname, '../data/productsData.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productController = {
     index: (req, res) => {
-        res.render('products', {
-            products,
-        });
+        /*db.Order.findAll({
+            include: ["productos"]
+        }).then(products => {
+            res.send(products);
+        })
+        */
+        /*db.Product.findAll({
+            include: ["categories"]
+        })
+        
+            .then(products => {
+                //res.render('products', {products})
+                res.send(products);
+            })
+        */
+        db.Product.findAll()
+            .then(productos => {
+                res.render('products', {
+                    productos
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            })
     },
     detail: (req, res) => {
         const id = req.params.id;
+        db.Product.findByPk(id)
+            .then(product => {
+                res.render("productDetail", {product: product})
+            })
+        /*
+        
         const product = products.find(p => p.id == id);
 
         res.render('productDetail', {
             product,
         });
+        */
     },
     create: (req, res) => {
         res.render('formulario-creacion-producto');
@@ -30,7 +59,7 @@ const productController = {
         });
     },
     store: (req, res) => {
-        const productToCreate = req.body;
+        /*const productToCreate = req.body;
         const imageProduct = {
             ...productToCreate,
             image: req.file.filename,
@@ -39,29 +68,53 @@ const productController = {
         products.push(imageProduct);
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products))
-
-        res.redirect("/products");
+        res.redirect("/products");*/
+        db.Product.create(
+            {
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                image: req.body.image,
+            }
+        )
+        
+        return res.redirect('/products');
     },
     update: (req, res) => {
-        const id = req.params.id;
-		products.forEach((product) => {
-			if(product.id == id){
-				product.name = req.body.name,
-                product.price = req.body.price,
-                product.discount = req.body.discount,
-                product.category = req.body.category,
-                product.description = req.body.description
-			}
-		});
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect("/products");
+        // const id = req.params.id;
+		// products.forEach((product) => {
+		// 	if(product.id == id){
+		// 		product.name = req.body.name,
+        //         product.price = req.body.price,
+        //         product.discount = req.body.discount,
+        //         product.category = req.body.category,
+        //         product.description = req.body.description
+		// 	}
+		// });
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        db.Product.update({
+            name: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            price: req.body.price,
+        }, {
+            where: {
+                id: req.params.id,
+            }
+        });
+        
+        res.render("/products");
     },
     delete: (req, res) => {
-        const id = +req.params.id;
-        const productToDelete = products.filter(producto => producto.id !== id);
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(productToDelete));
-        res.send('Eliminé el producto');
+        // let id = req.params.id;
+        // products = products.filter(producto => producto.id != id);
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        db.Product.destroy({
+            where: {
+                id: req.params.id,
+            }
+        })
+        res.redirect("/products");
     }
 }
 

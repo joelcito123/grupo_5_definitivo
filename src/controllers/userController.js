@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const db = require("../database/models");
 
 const usersFilePath = path.join(__dirname, '../data/usersData.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -8,6 +9,13 @@ const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const userController = {
     login: (req, res) => {
+        /* prueba de tablas
+        db.User.findAll({
+            include: ["orders"]
+        }).then(users => {
+            res.send(users);
+        })
+        */
         res.render('login')
     },
     register: (req ,res) => {
