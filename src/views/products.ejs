@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Listado de productos</title>
     <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/styles/productStyles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <%- include('./partials/header') %>
 
-    <main>
-        <h1>Todos los productos</h1>
-        <section>
-            <% productos.forEach(producto => { %>
-                <a href="/products/detail/<%= producto.id %>">
-                    <figure>
-                        <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
-                    </figure>
-                    <article>
-                        <p>$<%= producto.name %></p>
-                        <p>$<%= producto.price %></p>
-                    </article>
-                </a>
-            <% }) %>
-        </section>
-    </main>
+        <main>
+            <h1 class="title">Todos los productos</h1>
+            <section>
+                <% productos.forEach(producto=> { %>
+                    <a href="/products/detail/<%= producto.id %>">
+                        <figure>
+                            <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
+                        </figure>
+                        <article>
+                            <p class="nombre">$<%= producto.name %>
+                            </p>
+                            <p class="precio">$<%= producto.price %>
+                            </p>
+                        </article>
+                    </a>
+                    <% }) %>
+            </section>
+        </main>
 
-    <%- include('./partials/footer') %>
+        <%- include('./partials/footer') %>
 </body>
+
 </html>

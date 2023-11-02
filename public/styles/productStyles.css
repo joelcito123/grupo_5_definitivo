@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #9000B3;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.title,
+.nombre,
+.precio {
+    color: #f49c0a;
+}
+
+.nombre,
+.precio {
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+}
