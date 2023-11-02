@@ -16,7 +16,6 @@ const productController = {
             ]
         }).then(products => {
             res.render('products', { products })
-            res.send(products);
         }).catch(error => {
             console.log(error);
         })
