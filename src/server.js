@@ -22,9 +22,9 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 
-app.use('/', mainRouter);
-app.use('/products', productRouter);
-app.use('/user', userRouter);
+app.use('/', mainRouter); //Ruta menú
+app.use('/products', productRouter); //Ruta productos
+app.use('/user', userRouter); //Ruta usuarios
 
 
 
