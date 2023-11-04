@@ -1,11 +1,13 @@
-const fs = require('fs');
-const path = require('path');
-const db = require("../database/models");
-const { error } = require('console');
+const fs = require('fs'); //Requerir File System
+const path = require('path'); //Requerir Path
+const db = require("../database/models"); //Requerir db (modelos)
+const { error } = require('console'); //??
 
+//variables y constantes JSON
 const productsFilePath = path.join(__dirname, '../data/productsData.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+//Controlador
 const productController = {
 
     //Listado de todos los productos
@@ -96,4 +98,4 @@ const productController = {
     }
 }
 
-module.exports = productController;
+module.exports = productController; //Exportar el controlador

@@ -1,22 +1,13 @@
-const express = require('express');
-const router = express.Router();
-const multer = require('multer');
-const path = require("path");
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware');
+const express = require('express'); //Requerir Express
+const router = express.Router(); //Requerir Router
+const multer = require('multer'); //Requerir Multer
+const path = require("path"); //Requerir Path
+const guestMiddleware = require('../middlewares/guestMiddleware'); //Requerir Middleware Guest
+const authMiddleware = require('../middlewares/authMiddleware'); //Requerir Middleware Auth
 
-const productosController = require('../controllers/productController');
-/*
-const storage = multer.diskStorage({ 
-    destination: function (req, file, cb) { 
-       cb(null, './public/images/products'); 
-    }, 
-    filename: function (req, file, cb) {
-        const newFile = "image-" + Date.now() + path.extname(file.originalname);
-        cb(null, newFile);
-    }
-})*/
+const productosController = require('../controllers/productController'); //Requerir Controlador
 
+//Constante storage (para las imágenes)
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, './public/images/products')
@@ -27,7 +18,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer ({storage})
+const upload = multer ({storage}) //Upload para las imágenes
 
 //Rutas principales de products
 
