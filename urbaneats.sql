@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 08-11-2023 a las 00:21:18
+=======
+-- Tiempo de generación: 26-10-2023 a las 03:35:45
+>>>>>>> 5ea5eace4b2625ace6b02197fa71b5e0595b04a8
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +22,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `urbaneats`
+-- Base de datos: `urbaneats_prueba`
 --
 
 -- --------------------------------------------------------
@@ -94,6 +98,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `category_id`, `created_at`, `updated_at`) VALUES
+<<<<<<< HEAD
 (1, 'Humita', 'loren', 2000.00, 'humitas.jpg', 3, '2023-10-24 19:07:19', '2023-11-05 15:42:45'),
 (2, 'Empanadas de pollo', 'lorem ipsum', 2000.00, 'empanadas.jpg', 3, '2023-10-24 19:11:55', '2023-11-05 15:43:31'),
 (3, 'Locro', 'lorem ipsum', 2000.00, 'locro.jpg', 1, '2023-10-24 19:13:08', '2023-11-05 15:44:17'),
@@ -102,6 +107,15 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `category
 (6, 'Guiso de lentejas', 'lorem ipsum', 2000.00, 'guiso-lentejas.jpg', 1, '2023-10-24 19:16:30', '2023-11-05 15:45:43'),
 (7, 'Zapallito relleno', 'lorem ipsum', 2000.00, 'zapallito-relleno.jpg', 1, '2023-10-24 19:16:30', '2023-11-05 15:46:47'),
 (19, 'Polenta', 'lorem ipsum', 1500.00, 'image-1699198038929.jpg', NULL, '2023-11-05 15:27:18', '2023-11-05 15:27:18');
+=======
+(1, 'sopa majada', 'loren', 2000.00, 'humitas.png', 3, '2023-10-24 19:07:19', '2023-10-24 19:07:19'),
+(2, 'empanadas de pollo', 'lorem ipsum', 2000.00, 'locro.jpg', 3, '2023-10-24 19:11:55', '2023-10-24 19:11:55'),
+(3, 'locro', 'lorem ipsum', 2000.00, 'locro.jpg', 1, '2023-10-24 19:13:08', '2023-10-24 19:13:08'),
+(4, 'tamales', 'lorem ipsum', 2000.00, 'locro.jpg', 3, '2023-10-24 19:16:30', '2023-10-24 19:16:30'),
+(5, 'carne de llama', 'lorem ipsum', 2000.00, 'carne-llama.jpg', 1, '2023-10-24 19:16:30', '2023-10-24 19:16:30'),
+(6, 'guiso de lentajas', 'lorem ipsum', 2000.00, 'guiso-lentejas.jpg', 1, '2023-10-24 19:16:30', '2023-10-24 19:16:30'),
+(7, 'zapallito relleno', 'lorem ipsum', 2000.00, 'plato-rincipal.jpg', 1, '2023-10-24 19:16:30', '2023-10-24 19:16:30');
+>>>>>>> 5ea5eace4b2625ace6b02197fa71b5e0595b04a8
 
 -- --------------------------------------------------------
 
@@ -225,7 +239,11 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> 5ea5eace4b2625ace6b02197fa71b5e0595b04a8
 
 --
 -- AUTO_INCREMENT de la tabla `product_order`

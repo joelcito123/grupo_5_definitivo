@@ -4,15 +4,15 @@ module.exports = (sequelize, dataTypes) => {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+            allowNull: false,
+            autoIncrement: true
         },
         name: {
             type: dataTypes.STRING,
             allowNull: false
         },
         description: {
-            type: dataTypes.TEXT,
+            type: dataTypes.STRING,
             allowNull: false
         },
         price: {
@@ -20,9 +20,9 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         image: {
-            type: dataTypes.BLOB,
+            type: dataTypes.STRING,
             allowNull: false
-        },
+        }
     };
     let config = {
         tableName: "products",
