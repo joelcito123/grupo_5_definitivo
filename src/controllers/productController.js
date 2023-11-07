@@ -1,78 +1,97 @@
-const fs = require('fs'); //Requerir File System
-const path = require('path'); //Requerir Path
-const db = require("../database/models"); //Requerir db (modelos)
-const { error } = require('console'); //??
+const fs = require('fs');
+const path = require('path');
+const db = require("../database/models");
 
-//variables y constantes JSON
 const productsFilePath = path.join(__dirname, '../data/productsData.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-//Controlador
 const productController = {
-
-    //Listado de todos los productos
     index: (req, res) => {
-        db.Product.findAll({
-            order: [
-                ["id", "ASC"]
-            ]
+        /*db.Order.findAll({
+            include: ["productos"]
         }).then(products => {
-            res.render('products', { products })
-        }).catch(error => {
-            console.log(error);
+            res.send(products);
         })
+        */
+        /*db.Product.findAll({
+            include: ["categories"]
+        })
+        
+            .then(products => {
+                //res.render('products', {products})
+                res.send(products);
+            })
+        */
+        db.Product.findAll()
+            .then(productos => {
+                res.render('products', {
+                    productos
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            })
     },
-
-    //Detalle del producto
     detail: (req, res) => {
         const id = req.params.id;
         db.Product.findByPk(id)
             .then(product => {
-                res.render("productDetail", { product: product })
-            }).catch(error => {
-                console.log(error);
+                res.render("productDetail", {product: product})
             })
+        /*
+        
+        const product = products.find(p => p.id == id);
+
+        res.render('productDetail', {
+            product,
+        });
+        */
     },
-
-    //CRUD
-
-    //Mostrar Crear
     create: (req, res) => {
-        db.Category.findAll()
-            .then(categories => {
-                res.render("formulario-creacion-producto", { categories });
-            }).catch(error => {
-                console.log(error);
-            })
+        res.render('formulario-creacion-producto');
     },
+    edit: (req, res) => {
+        const id = req.params.id;
+        const productToEdit = products.find(p => p.id == id);
 
-    //Deveolver Crear
-    store: (req, res, next) => {
-        db.Product.create({
-            name: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            image: req.file.filename,
-        }).then(() => {
-            res.redirect("/products");
-        }).catch((error) => {
-            res.send(error)
+        res.render('formulario-edicion-producto', {
+            productToEdit,
         });
     },
+    store: (req, res) => {
+        /*const productToCreate = req.body;
+        const imageProduct = {
+            ...productToCreate,
+            image: req.file.filename,
+            id: new Date().getTime(),
+        };
+        products.push(imageProduct);
 
-    //Mostrar Editar
-    edit: (req, res) => {
-        let id = req.params.id;
-        db.Product.findByPk(id)
-            .then(productToEdit => {
-                res.render("formulario-edicion-producto", {productToEdit});
-            }).catch(error => {
-                console.log(error);
-            })            
+        fs.writeFileSync(productsFilePath, JSON.stringify(products))
+        res.redirect("/products");*/
+        db.Product.create(
+            {
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                image: req.body.image,
+            }
+        )
+        
+        return res.redirect('/products');
     },
-
-    //Devolver Editar
     update: (req, res) => {
+        // const id = req.params.id;
+		// products.forEach((product) => {
+		// 	if(product.id == id){
+		// 		product.name = req.body.name,
+        //         product.price = req.body.price,
+        //         product.discount = req.body.discount,
+        //         product.category = req.body.category,
+        //         product.description = req.body.description
+		// 	}
+		// });
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products));
         db.Product.update({
             name: req.body.name,
             description: req.body.description,
@@ -83,12 +102,13 @@ const productController = {
                 id: req.params.id,
             }
         });
-
-        res.redirect("/products");
+        
+        res.render("/products");
     },
-
-    //Devolver Eliminar
     delete: (req, res) => {
+        // let id = req.params.id;
+        // products = products.filter(producto => producto.id != id);
+        // fs.writeFileSync(productsFilePath, JSON.stringify(products));
         db.Product.destroy({
             where: {
                 id: req.params.id,
@@ -98,4 +118,4 @@ const productController = {
     }
 }
 
-module.exports = productController; //Exportar el controlador
+module.exports = productController;

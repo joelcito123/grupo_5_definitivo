@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2023 a las 22:00:31
+-- Tiempo de generación: 26-10-2023 a las 03:35:45
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `urbaneats`
+-- Base de datos: `urbaneats_prueba`
 --
 
 -- --------------------------------------------------------
@@ -83,7 +83,7 @@ CREATE TABLE `products` (
   `name` varchar(200) NOT NULL,
   `description` text NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `image` longblob NOT NULL,
+  `image` varchar(500) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -94,16 +94,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'sopa majada', 'loren', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 3, '2023-10-24 19:07:19', '2023-10-28 19:54:14'),
-(2, 'empanadas de pollo', 'lorem ipsum', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 3, '2023-10-24 19:11:55', '2023-10-28 19:54:14'),
-(3, 'locro', 'lorem ipsum', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 1, '2023-10-24 19:13:08', '2023-10-28 19:54:14'),
-(4, 'tamales', 'lorem ipsum', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 3, '2023-10-24 19:16:30', '2023-10-28 19:54:14'),
-(5, 'carne de llama', 'lorem ipsum', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 1, '2023-10-24 19:16:30', '2023-10-28 19:54:14'),
-(6, 'guiso de lentajas', 'lorem ipsum', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 1, '2023-10-24 19:16:30', '2023-10-28 19:54:14'),
-(7, 'zapallito relleno', 'lorem ipsum', 2000.00, 0x696d6167652d313639353736313737323038322e6a7067, 1, '2023-10-24 19:16:30', '2023-10-28 19:54:14'),
-(8, 'hola', 'como estas', 1.00, 0x696d6167652d313639353736313737323038322e6a7067, NULL, '2023-10-28 19:25:50', '2023-10-28 19:54:14'),
-(16, 'dsad', 'dasd', 323.00, 0x5b6f626a656374204f626a6563745d, NULL, '2023-11-02 20:45:34', '2023-11-02 20:45:34'),
-(17, 'joelsito', 'sdads', 1234.00, 0x696d6167652d313639383935383635393632342e6a7067, NULL, '2023-11-02 20:57:39', '2023-11-02 20:57:39');
+(1, 'sopa majada', 'loren', 2000.00, 'humitas.png', 3, '2023-10-24 19:07:19', '2023-10-24 19:07:19'),
+(2, 'empanadas de pollo', 'lorem ipsum', 2000.00, 'locro.jpg', 3, '2023-10-24 19:11:55', '2023-10-24 19:11:55'),
+(3, 'locro', 'lorem ipsum', 2000.00, 'locro.jpg', 1, '2023-10-24 19:13:08', '2023-10-24 19:13:08'),
+(4, 'tamales', 'lorem ipsum', 2000.00, 'locro.jpg', 3, '2023-10-24 19:16:30', '2023-10-24 19:16:30'),
+(5, 'carne de llama', 'lorem ipsum', 2000.00, 'carne-llama.jpg', 1, '2023-10-24 19:16:30', '2023-10-24 19:16:30'),
+(6, 'guiso de lentajas', 'lorem ipsum', 2000.00, 'guiso-lentejas.jpg', 1, '2023-10-24 19:16:30', '2023-10-24 19:16:30'),
+(7, 'zapallito relleno', 'lorem ipsum', 2000.00, 'plato-rincipal.jpg', 1, '2023-10-24 19:16:30', '2023-10-24 19:16:30');
 
 -- --------------------------------------------------------
 
@@ -227,7 +224,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `product_order`
