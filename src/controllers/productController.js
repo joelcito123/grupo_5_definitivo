@@ -82,9 +82,9 @@ const productController = {
             where: {
                 id: req.params.id,
             }
-        });
-
-        res.redirect("/products");
+        }).then(()=> {
+            return res.redirect('/products')})            
+        .catch(error => res.send(error))
     },
 
     //Devolver Eliminar
@@ -93,8 +93,9 @@ const productController = {
             where: {
                 id: req.params.id,
             }
-        })
-        res.redirect("/products");
+        }).then(()=> {
+            return res.redirect('/products')})            
+        .catch(error => res.send(error))
     }
 }
 

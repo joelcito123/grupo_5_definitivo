@@ -69,10 +69,12 @@ p.nombre{
     .productos article{
         width: 44%;
     }
+    /*
     article img{
         height: 180px;
         object-fit: cover;
     }
+    */
 }
 
 @media(min-width: 769px){
