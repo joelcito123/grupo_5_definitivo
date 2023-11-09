@@ -3,8 +3,8 @@
 
 <head>
     <%- include('./partials/head')%>
-    <title>UrbanEats Jujuy</title>
-    <link rel="stylesheet" href="/styles/stylesHome.css">
+        <title>UrbanEats Jujuy</title>
+        <link rel="stylesheet" href="/styles/stylesHome.css">
 </head>
 
 <body>
@@ -13,88 +13,46 @@
             <section>
                 <h2>Lo favorito de la gente</h2>
                 <div class="productos">
-                    <article>
-                        <img src="/images/products/humitas.jpg" alt="Humita">
-                        <div class="descripcion">
-                            <p class="precio">$2000 por 10</p>
-                            <p class="oferta">15% off</p>
-                            <p class="nombre">Humita</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/products/empanadas.jpg" alt="Empanadas">
-                        <div class="descripcion">
-                            <p class="precio">$1500 por docena</p>
-                            <p class="oferta">20% off</p>
-                            <p class="nombre">Empanadas de Pollo / Carne</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/products/Locro-700x420.jpg" alt="Locro">
-                        <div class="descripcion">
-                            <p class="precio">$1100</p>
-                            <p class="oferta">20% off</p>
-                            <p class="nombre">Locro</p>
-                        </div>
-                    </article>
+                    <% for(let i = 0; i < 3; i++) { %>
+                        <article>
+                            <img src="/images/products/<%= products[i].image %>" alt="Tamales">
+                            <div class="descripcion">
+                                <p class="precio"><%= products[i].price %></p>
+                                <p class="oferta">20% off</p>
+                                <p class="nombre"><%= products[i].name %></p>
+                            </div>
+                        </article>
+                    <% } %>
                 </div>
             </section>
             <section>
                 <h2>Lo mejor de la casa</h2>
                 <div class="productos">
-                    <article>
-                        <img src="/images/products/tamales.jpg" alt="Tamales">
-                        <div class="descripcion">
-                            <p class="precio">$3500 la docena</p>
-                            <p class="oferta">15% off</p>
-                            <p class="nombre">Tamales</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/products/Carne-de-Llama-700x420.jpg" alt="Carne de Llama">
-                        <div class="descripcion">
-                            <p class="precio">$1500 por docena</p>
-                            <p class="oferta">20% off</p>
-                            <p class="nombre">Carne de Llama</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/products/Guiso-de-Lentejas-700x420.jpg" height="100px" alt="Guiso de Lentejas">
-                        <div class="descripcion">
-                            <p class="precio">$1100</p>
-                            <p class="oferta">20% off</p>
-                            <p class="nombre">Guiso de Lentejas</p>
-                        </div>
-                    </article>
+                    <% for(let i = 3; i < 6; i++) { %>
+                        <article>
+                            <img src="/images/products/<%= products[i].image %>" alt="Tamales">
+                            <div class="descripcion">
+                                <p class="precio"><%= products[i].price %></p>
+                                <p class="oferta">20% off</p>
+                                <p class="nombre"><%= products[i].name %></p>
+                            </div>
+                        </article>
+                    <% } %>
                 </div>
             </section>
             <section>
                 <h2>También puede interesarte</h2>
                 <div class="productos">
-                    <article>
-                        <img src="/images/products/combo.jpg" alt="gastronomia">
-                        <div class="descripcion">
-                            <p class="precio">$2000 por 10</p>
-                            <p class="oferta">15% off</p>
-                            <p class="nombre">Combo Tamales / Empanadas + Plato de Locro</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/products/Polenta-700x420.jpg" alt="gastronomia 2">
-                        <div class="descripcion">
-                            <p class="precio">$1500/Plato</p>
-                            <p class="oferta">20% off</p>
-                            <p class="nombre">Locro</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="/images/products/tamales.jpg" alt="tamal?">
-                        <div class="descripcion">
-                            <p class="precio">$1100</p>
-                            <p class="oferta">20% off</p>
-                            <p class="nombre">Tamales</p>
-                        </div>
-                    </article>
+                    <% for(let i = 6; i < 8; i++) { %>
+                        <article>
+                            <img src="/images/products/<%= products[i].image %>" alt="Tamales">
+                            <div class="descripcion">
+                                <p class="precio"><%= products[i].price %></p>
+                                <p class="oferta">20% off</p>
+                                <p class="nombre"><%= products[i].name %></p>
+                            </div>
+                        </article>
+                    <% } %>
                 </div>
             </section>
         </main>

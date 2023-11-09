@@ -4,8 +4,8 @@ const db = require("../database/models"); //Requerir db (modelos)
 const { error } = require('console'); //??
 
 //variables y constantes JSON
-const productsFilePath = path.join(__dirname, '../data/productsData.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const productsFilePath = path.join(__dirname, '../data/productsData.json');
+//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 //Controlador
 const productController = {
