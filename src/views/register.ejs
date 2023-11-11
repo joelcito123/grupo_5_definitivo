@@ -5,19 +5,98 @@
     <%- include('./partials/head')%>
     <title>UrbanEats Jujuy - Formulario de registro</title>
     <link rel="stylesheet" href="/styles/stylesRegister.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
     <%- include('./partials/header')%>
     <main>
-        <h1 class="titulo">Crea tu cuenta</h1>
         <form action="/user/register" method="POST" enctype="multipart/form-data">
-            <input type="text" placeholder="Nombre de Pila" name="name">
-            <input type="text" placeholder="Apellido" name="last_name">
-            <input type="email" placeholder="Correo Electrónico" name="email">
-            <input type="password" placeholder="Contraseña" name="password">
-            <input type="file" name="image" id="image" >
-            <button type="submit" class="btn">Empezar a ordenar</button>
+            <h1>REGISTRARSE</h1>
+            <div class="row">
+                <div class="col-md-6 my-1">
+                    <div class="form-group">
+                        <label><b>Nombre:</b></label>
+                        <input 
+                            type="text" 
+                            name="first_name" 
+                            class="form-control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.first_name : null %>"
+                        >
+                        <% if (locals.errors && errors.first_name) { %>
+                            <div class="text-danger">
+                                <%= errors.first_name.msg %> 
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-6 my-1">
+                    <div class="form-group">
+                        <label><b>Apellido:</b></label>
+                        <input 
+                            type="text" 
+                            name="last_name" 
+                            class="form-control <%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.last_name : null %>"
+                        >
+                        <% if (locals.errors && errors.last_name) { %>
+                            <div class="text-danger">
+                                <%= errors.last_name.msg %> 
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-6 my-1">
+                    <div class="form-group">
+                        <label><b>Correo electrónico:</b></label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.email : null %>"
+                        >
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %> 
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-6 my-1">
+                    <div class="form-group">
+                        <label><b>Password:</b></label>
+                        <input 
+                            type="password" 
+                            name="hashed_password" 
+                            class="form-control <%= locals.errors && errors.hashed_password ? 'is-invalid' : null %>"
+                        >
+                        <% if (locals.errors && errors.hashed_password) { %>
+                            <div class="text-danger">
+                                <%= errors.hashed_password.msg %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-6 my-1">
+                    <div class="form-group">
+                        <label><b>Imagen de perfil:</b></label>
+                        <input 
+                            type="file" 
+                            name="profile_image"
+                            class="form-control <%= locals.errors && errors.profile_image ? 'is-invalid' : null %>"
+                        >
+                        <% if (locals.errors && errors.profile_image) { %>
+                            <div class="text-danger">
+                                <%= errors.profile_image.msg %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-12 my-3">
+                    <button type="submit" class="">Registrarse</button>
+                </div>
+            </div>
+            
         </form>
     </main>
     <%- include('./partials/footer')%>

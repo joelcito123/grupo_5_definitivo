@@ -1,30 +1,40 @@
 const express = require('express');
 const path = require('path');
-const mainRouter = require('./routes/main');
-const productRouter = require('./routes/productos');
-const userRouter = require ('./routes/usuario');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const cookies = require('cookie-parser');
 
 const app = express();
-const publicPath = path.resolve(__dirname, '../public');
-app.use(express.static(publicPath));
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
+app.use(session({
+    secret: 'secreto',
+    resave: true,
+    saveUninitialized: true,
+}));
+app.use(cookies());
+
+app.use(userLoggedMiddleware);
+
+app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(session({
-    secret: 'secreto',
-    resave: false,
-    saveUninitialized: false,
-}));
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
+//Rutas
+const mainRouter = require('./routes/main');
+const productRouter = require('./routes/productos');
+const userRouter = require ('./routes/usuario');
 
 app.use('/', mainRouter);
-app.use('/products', productRouter);
 app.use('/user', userRouter);
+app.use('/products', productRouter);
 
 
 

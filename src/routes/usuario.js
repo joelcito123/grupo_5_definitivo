@@ -1,37 +1,32 @@
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware')
 
+//Requiero el controlador
 const userController = require('../controllers/userController');
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './public/images/users')
-    },
-    filename: (req, file, cb) => {
-        const extension = file.originalname.split('.')[1];
-        cb(null, file.fieldname + '-' + new Date().getTime() + '.' + extension)
-    }
-})
+// Requiero los Middlewares
+const uploadFile = require('../middlewares/multerMiddleware');
+const validations = require('../middlewares/validateRegisterMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
+//const adminMiddleware = require('../middlewares/adminMiddleware');
 
-const upload = multer({
-    storage,
-})
-
-router.get('/login', guestMiddleware, userController.login);
-router.post('/login', userController.loged);
+// Ruta para Ver el Formulario de registro
 router.get('/register', guestMiddleware, userController.register);
-router.post('/register', upload.single('image'), userController.registed);
-router.get('/profile', authMiddleware, userController.profile);
 
-router.get('/check', (req, res) => {
-     if(req.session.usuarioLogueado == undefined) {
-        res.send('No estás logueado')
-     } else {
-        res.send('el usuario logueado es ' + req.session.usuarioLogueado.email)
-     }
-})
+// Procesar el registro
+router.post('/register', uploadFile.single('profile_image'), validations, userController.processRegister);
+
+// Formulario de login
+router.get('/login', guestMiddleware, userController.login);
+
+// Procesar el login
+router.post('/login', userController.loginProcess);
+
+// Perfil de Usuario
+router.get('/profile/', authMiddleware, userController.profile);
+
+// Logout
+router.get('/logout/', userController.logout);
 
 module.exports = router;
