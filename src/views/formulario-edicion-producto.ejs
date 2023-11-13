@@ -3,17 +3,19 @@
 
 <head>
     <%- include('./partials/head')%>
-    <title>Formulario de edición</title>
-    <link rel="stylesheet" href="/styles/formulario-edicion.css">
+        <title>Formulario de edición</title>
+        <link rel="stylesheet" href="/styles/formulario-edicion.css">
 </head>
 
 <body>
     <%- include('./partials/header')%>
         <main>
             <h2 class="title">Formulario de edició de producto</h2>
-            <p>Editando: <%= productToEdit.name %></p>
-            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST">
-                <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
+            <p>Editando: <%= productToEdit.name %>
+            </p>
+            <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <input type="text" id="name" name="name" placeholder="Nombre del producto" class="product-name">
+                <span class="error-message1"></span>
                 <input type="text" id="price" name="price" placeholder="Precio del producto" class="form-input">
                 <label for="category" class="form-label">Categoría:</label>
                 <select name="category" id="category" class="form-input">
@@ -21,12 +23,16 @@
                     <option value="desayuno">Desayuno</option>
                     <option value="plato-principal">Plato Principal</option>
                 </select>
-                <textarea name="description" id="description" class="form-input"
+                <textarea name="description" id="description" class="product-description"
                     placeholder="Descripcion del producto"></textarea>
+                <span class="error-message2"></span>
+                <input type="file" name="image" id="image" class="product-image">
+                <span class="error-image"></span>
                 <button type="submit" class="button1">Editar producto</button>
             </form>
         </main>
         <%- include('./partials/footer')%>
 </body>
+<script src="/js/validaciones.js"></script>
 
 </html>

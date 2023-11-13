@@ -50,3 +50,10 @@ main form button {
     width: 30%;
     height: 30px;
 }
+
+.error-message1,
+.error-message2,
+.error-image {
+    display: none;
+    color: red;
+}

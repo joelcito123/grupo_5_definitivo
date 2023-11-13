@@ -13,22 +13,26 @@
             <h2 class="title">Formulario de creación de productos</h2>
             <form action="/products" method="POST" enctype="multipart/form-data">
                 <div>
-                    <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input">
+                    <input type="text" id="name" name="name" placeholder="Nombre del producto" class="product-name">
+                    <span class="error-message1"></span>
                 </div>
-                <input type="text" id="price" name="price" placeholder="Precio del producto" class="form-input">
+                <input type="text" id="price" name="price" placeholder="Precio del producto" class="product-price">
                 <label for="category" class="form-label">Categoría:</label>
-                <select name="category" id="category" class="form-input">
+                <select name="category" id="category" class="product-category">
                     <option value="">Elegí</option>
                     <option value="desayuno">Desayuno</option>
                     <option value="plato-rincipal">Plato principal</option>
                 </select>
-                <textarea name="description" id="description" class="form-input"
+                <textarea name="description" id="description" class="product-description"
                     placeholder="Descripcion del producto"></textarea>
-                    <input type="file" name="image" id="image">
-                <button type="submit">Guardar producto</button>
+                    <span class="error-message2"></span>
+                    <input type="file" name="image" id="image" class="product-image">
+                    <span class="error-image"></span>
+                <button type="submit" class="submit">Guardar producto</button>
             </form>
         </main>
         <%- include('./partials/footer')%>
+        <script src="/js/validaciones.js"></script>
 </body>
 
 </html>

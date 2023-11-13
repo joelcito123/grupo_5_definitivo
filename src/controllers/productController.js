@@ -47,7 +47,7 @@ const productController = {
     },
 
     //Deveolver Crear
-    store: (req, res, next) => {
+    store: (req, res) => {
         db.Product.create({
             name: req.body.name,
             description: req.body.description,
@@ -78,13 +78,14 @@ const productController = {
             description: req.body.description,
             category: req.body.category,
             price: req.body.price,
+            image: req.file.filename,
         }, {
             where: {
                 id: req.params.id,
             }
         }).then(()=> {
             return res.redirect('/products')})            
-        .catch(error => res.send(error))
+        .catch(error => console.log(error))
     },
 
     //Devolver Eliminar
