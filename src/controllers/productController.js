@@ -2,6 +2,7 @@ const fs = require('fs'); //Requerir File System
 const path = require('path'); //Requerir Path
 const db = require("../database/models"); //Requerir db (modelos)
 const { error } = require('console'); //??
+const { validationResult } = require('express-validator')
 
 //variables y constantes JSON
 //const productsFilePath = path.join(__dirname, '../data/productsData.json');
@@ -48,13 +49,17 @@ const productController = {
 
     //Deveolver Crear
     store: (req, res) => {
+        let errores = validationResult(req);
+        if (!errores.isEmpty()) {
+            res.render("formulario-creacion-producto");
+        }
         db.Product.create({
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
             image: req.file.filename,
         }).then(() => {
-            res.redirect("/products");
+           res.redirect("/products");
         }).catch((error) => {
             res.send(error)
         });
@@ -65,10 +70,10 @@ const productController = {
         let id = req.params.id;
         db.Product.findByPk(id)
             .then(productToEdit => {
-                res.render("formulario-edicion-producto", {productToEdit});
+                res.render("formulario-edicion-producto", { productToEdit });
             }).catch(error => {
                 console.log(error);
-            })            
+            })
     },
 
     //Devolver Editar
@@ -83,9 +88,10 @@ const productController = {
             where: {
                 id: req.params.id,
             }
-        }).then(()=> {
-            return res.redirect('/products')})            
-        .catch(error => console.log(error))
+        }).then(() => {
+            return res.redirect('/products')
+        })
+            .catch(error => console.log(error))
     },
 
     //Devolver Eliminar
@@ -94,9 +100,10 @@ const productController = {
             where: {
                 id: req.params.id,
             }
-        }).then(()=> {
-            return res.redirect('/products')})            
-        .catch(error => res.send(error))
+        }).then(() => {
+            return res.redirect('/products')
+        })
+            .catch(error => res.send(error))
     }
 }
 
