@@ -42,7 +42,7 @@ router.get('/', productosController.index);
 router.post('/', upload.single('image'), validacionesProductos, productosController.store);
 router.get('/detail/:id', productosController.detail);
 router.get('/edition/:id', productosController.edit);
-router.put('/:id', upload.single('image'), productosController.update);
+router.put('/:id', upload.single('image'), validacionesProductos,productosController.update);
 router.get('/create', productosController.create);
 router.delete('/:id', productosController.delete);
 

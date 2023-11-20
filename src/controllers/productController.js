@@ -59,7 +59,7 @@ const productController = {
             price: req.body.price,
             image: req.file.filename,
         }).then(() => {
-           res.redirect("/products");
+            res.redirect("/products");
         }).catch((error) => {
             res.send(error)
         });
@@ -78,6 +78,10 @@ const productController = {
 
     //Devolver Editar
     update: (req, res) => {
+        let errores = validationResult(req);
+        if (!errores.isEmpty()) {
+            res.render('formulario-edicion-producto');
+        }
         db.Product.update({
             name: req.body.name,
             description: req.body.description,
@@ -92,6 +96,7 @@ const productController = {
             return res.redirect('/products')
         })
             .catch(error => console.log(error))
+
     },
 
     //Devolver Eliminar
