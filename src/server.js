@@ -22,7 +22,7 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
+// Template de ejs
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -36,7 +36,10 @@ app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/products', productRouter);
 
-
+// Error 404
+app.use((req, res, next) => {
+    res.status(404).render('no-encontrado');
+})
 
 app.listen(3000, () => {
     console.log('servidor corriendo en el puerto 3000');

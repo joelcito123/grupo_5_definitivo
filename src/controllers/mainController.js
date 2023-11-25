@@ -12,7 +12,7 @@ const controlador = {
                 ["id", "ASC"]
             ]
         }).then(products => {
-            res.render('home', { products: products })
+            res.render('home', { products })
         }).catch(error => {
             console.log(error);
         })
