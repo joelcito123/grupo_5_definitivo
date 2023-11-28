@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -38,3 +39,4 @@ app.use('/', mainRoutes);
 app.use('/user', userRoutes);
 app.use('/products', productsRoutes)
 app.listen(3000, () => console.log('Servidor levantado en el puerto 3000'));
+*/

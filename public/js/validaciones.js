@@ -1,3 +1,4 @@
+/*
 window.onload = function () {
     const nombre = document.querySelector('.product-name');
     const descripcion = document.querySelector('.product-description');
@@ -37,7 +38,7 @@ window.onload = function () {
             return;
           }
 
-        const extensionesValidas = [".jpg", ".jpeg", ".png", ".gif"];
+        const extensionesValidas = [".jpg",".jpeg", ".png", ".gif"];
         const extension = imagen.files[0].name.split(".").pop();
 
         if (extensionesValidas.indexOf("." + extension) === -1) {
@@ -51,3 +52,4 @@ window.onload = function () {
     
 
 }
+*/

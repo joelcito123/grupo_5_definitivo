@@ -10,29 +10,61 @@
 <body>
     <%- include('./partials/header')%>
         <main>
+            
+
+
+            <% if (locals.errors) { %>
+                <p> <%= errors === true %> </p>
+                <% for(let oneError = 0; oneError < errors.length; oneError++) { %>
+                    <p> <%= errors[oneError].msg %> </p>
+                <% } %>
+            <% } %>
+            
             <h2 class="title">Formulario de creación de productos</h2>
-            <form action="/products" method="POST" enctype="multipart/form-data">
+            <form action="/products/create" method="POST" enctype="multipart/form-data">
                 <div>
-                    <input type="text" id="name" name="name" placeholder="Nombre del producto" class="product-name">
-                    <span class="error-message1"></span>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Nombre del producto" 
+                        class="product-name"
+                    >
+                    <!-- <span class="error-message1"></span> -->
                 </div>
-                <input type="text" id="price" name="price" placeholder="Precio del producto" class="product-price">
+                <div>
+                    <input 
+                        type="text" 
+                        id="price" 
+                        name="price" 
+                        placeholder="Precio del producto" 
+                        class="product-price"
+                    >
+                </div>
                 <label for="category" class="form-label">Categoría:</label>
                 <select name="category" id="category" class="product-category">
                     <option value="">Elegí</option>
                     <option value="desayuno">Desayuno</option>
-                    <option value="plato-rincipal">Plato principal</option>
+                    <option value="plato-principal">Plato principal</option>
                 </select>
                 <textarea name="description" id="description" class="product-description"
-                    placeholder="Descripcion del producto"></textarea>
-                    <span class="error-message2"></span>
-                    <input type="file" name="image" id="image" class="product-image">
-                    <span class="error-image"></span>
+                    placeholder="Descripcion del producto">
+                </textarea>
+                <span class="error-message2"></span>
+                <div>
+                    <input 
+                        type="file" 
+                        name="image" 
+                        id="image" 
+                        class="product-image"
+                    >
+                </div>
+                <!--<span class="error-image"></span>-->
                 <button type="submit" class="submit">Guardar producto</button>
             </form>
         </main>
         <%- include('./partials/footer')%>
-        <script src="/js/validaciones.js"></script>
+            <script src="/js/validaciones.js"></script>
 </body>
 
 </html>

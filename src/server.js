@@ -22,8 +22,6 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
-
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
@@ -36,7 +34,12 @@ app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/products', productRouter);
 
+//Apis
+const apiProductsRouter = require("./api/apiRoutes/apiProductRoutes");
+const apiUsersRouter = require("./api/apiRoutes/apiUsersRoutes");
 
+app.use("/api", apiProductsRouter);
+app.use("/api", apiUsersRouter);
 
 app.listen(3000, () => {
     console.log('servidor corriendo en el puerto 3000');

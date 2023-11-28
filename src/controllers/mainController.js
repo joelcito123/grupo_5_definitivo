@@ -18,7 +18,10 @@ const controlador = {
         })
     },
     carrito: (req, res) => {
-        res.render('productCart')
+        res.render('productCart');
+    },
+    buscar: (req, res) => {
+        res.render("buscar");
     }
     
 }
