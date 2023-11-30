@@ -63,6 +63,10 @@ const userController = {
 		return res.render('login');
 	},
     loginProcess: (req, res) => {
+        let error = validationResult(req);
+        if(!error.isEmpty()){
+            res.render('login')
+        }
         Users.findAll({
             where: {
                 email: {[Op.eq]: req.body.email}
@@ -102,7 +106,7 @@ const userController = {
         })
 	},
     profile: (req, res) => {
-		return res.render('userProfile', {
+        return res.render('userProfile', {
 			user: req.session.userLogged
 		});
 	},

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { check } = require('express-validator');
 
 //Requiero el controlador
 const userController = require('../controllers/userController');
@@ -11,6 +12,15 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 //const adminMiddleware = require('../middlewares/adminMiddleware');
 
+const validacionesLoginUsuario = [
+    check('email')
+    .isEmail().withMessage('Debe ser un email valido')
+    .isEmpty().withMessage('El email es obligatorio'),
+    check('password')
+    .notEmpty().withMessage('Contraseña no valida'),
+]
+
+
 // Ruta para Ver el Formulario de registro
 router.get('/register', guestMiddleware, userController.register);
 
@@ -21,7 +31,7 @@ router.post('/register', uploadFile.single('profile_image'), validations, userCo
 router.get('/login', guestMiddleware, userController.login);
 
 // Procesar el login
-router.post('/login', userController.loginProcess);
+router.post('/login', validacionesLoginUsuario,userController.loginProcess);
 
 // Perfil de Usuario
 router.get('/profile/', authMiddleware, userController.profile);

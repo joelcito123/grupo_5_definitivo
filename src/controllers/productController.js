@@ -87,6 +87,10 @@ const productController = {
 
     //Devolver Editar
     update: (req, res) => {
+        let errores = validationResult(req);
+        if (!errores.isEmpty()) {
+            res.render('formulario-edicion-producto');
+        }
         db.Product.update({
             name: req.body.name,
             description: req.body.description,
