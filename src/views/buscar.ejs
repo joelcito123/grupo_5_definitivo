@@ -10,6 +10,24 @@
 <body>
     <%- include('./partials/header')%>
         <main>
+            <% if(locals.productos) { %>
+                <% productos.forEach(producto => { %>
+                    <a href="/products/detail/<%= producto.id %>">
+                        <figure>
+                            <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
+                        </figure>
+                        <article>
+                            <p class="nombre"><%= producto.name %>
+                            </p>
+                            <p class="precio">$<%= producto.price %>
+                            </p>
+                        </article>
+                    </a>
+                <% }) %>
+                <% if(productos == "") { %>
+                    <p>No se encontraron resultados</p>
+                <% } %>
+            <% } %>
         </main>
         <%- include('./partials/footer')%>
 </body>

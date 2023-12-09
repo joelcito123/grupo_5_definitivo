@@ -12,42 +12,46 @@
         <main>
             <section>
                 <h2>Lo favorito de la gente</h2>
-                <div class="productos">
-                    <section>
-                        <% products.forEach(producto => { %>
-                            <a href="/products/detail/<%= producto.id %>">
-                                <figure>
-                                    <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
-                                </figure>
-                                <article>
-                                    <p class="nombre"><%= producto.name %>
-                                    </p>
-                                    <p class="precio">$<%= producto.price %>
-                                    </p>
-                                </article>
-                            </a>
-                        <% }) %>
-                    </section>
-                </div>
+                
+                                <div class="productos">
+                                    <section>
+                                        <% products.forEach(producto=> { %>
+                                            <a href="/products/detail/<%= producto.id %>">
+                                                <figure>
+                                                    <img src="/images/products/<%= producto.image %>"
+                                                        alt="Imagen del producto">
+                                                </figure>
+                                                <article>
+                                                    <p class="nombre">
+                                                        <%= producto.name %>
+                                                    </p>
+                                                    <p class="precio">$<%= producto.price %>
+                                                    </p>
+                                                </article>
+                                            </a>
+                                            <% }) %>
+                                    </section>
+                                </div>
             </section>
-                <h2>También puede interesarte</h2>
-                <div class="productos">
-                    <section>
-                        <% products.forEach(producto => { %>
-                            <a href="/products/detail/<%= producto.id %>">
-                                <figure>
-                                    <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
-                                </figure>
-                                <article>
-                                    <p class="nombre"><%= producto.name %>
-                                    </p>
-                                    <p class="precio">$<%= producto.price %>
-                                    </p>
-                                </article>
-                            </a>
+            <h2>También puede interesarte</h2>
+            <div class="productos">
+                <section>
+                    <% products.forEach(producto=> { %>
+                        <a href="/products/detail/<%= producto.id %>">
+                            <figure>
+                                <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
+                            </figure>
+                            <article>
+                                <p class="nombre">
+                                    <%= producto.name %>
+                                </p>
+                                <p class="precio">$<%= producto.price %>
+                                </p>
+                            </article>
+                        </a>
                         <% }) %>
-                    </section>
-                </div>
+                </section>
+            </div>
         </main>
         <%- include('./partials/footer')%>
 </body>

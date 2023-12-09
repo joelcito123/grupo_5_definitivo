@@ -1,8 +1,9 @@
 const fs = require('fs'); //Requerir File System
-const path = require('path'); //Requerir Path
+const path = require('path'); //Requerir Path 
 const db = require("../database/models"); //Requerir db (modelos)
 const { error } = require('console');
-const { validationResult } = require("express-validator");
+const { validationResult } = require("express-validator"); //Requerir express-validator
+const { Op } = require("sequelize"); //Requerir sequelize
 
 //variables y constantes JSON
 //const productsFilePath = path.join(__dirname, '../data/productsData.json');
@@ -35,6 +36,26 @@ const productController = {
             })
     },
 
+    //Buscar producto
+    search: (req, res) => {
+        db.Product.findAll({
+            where: {
+                [Op.or]: [
+                    {
+                        name: {
+                            [Op.like]: "%" + req.query.buscar + "%"
+                        }
+                    }
+                ]
+            }
+        }).then(resultado => {
+            res.render("buscar", { productos: resultado });
+        }).catch(error => {
+            console.log(error);
+        })
+
+    },
+
     //CRUD
 
     //Mostrar Crear
@@ -51,8 +72,7 @@ const productController = {
     store: (req, res) => {
         const resultValidation = validationResult(req);
         if (resultValidation.isEmpty()) {
-            res.send("valido");
-            /*db.Product.create({
+            db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
                 price: req.body.price,
@@ -62,16 +82,21 @@ const productController = {
             }).catch((error) => {
                 res.send(error)
             });
-            */
         } else {
-            res.render("formulario-creacion-producto", {
-                errors: resultValidation.mapped()
+            db.Category.findAll()
+            .then(categories => {
+                res.render("formulario-creacion-producto", 
+                    {
+                        categories,
+                        errors: resultValidation.mapped(),
+                        oldData: req.body
+                    });
+            }).catch(error => {
+                console.log(error);
             })
-            /*res.render("formulario-creacion-producto", {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })*/
         }
+
+
     },
 
     //Mostrar Editar
@@ -87,24 +112,37 @@ const productController = {
 
     //Devolver Editar
     update: (req, res) => {
-        let errores = validationResult(req);
-        if (!errores.isEmpty()) {
-            res.render('formulario-edicion-producto');
+        const resultValidation = validationResult(req);
+        if (resultValidation.isEmpty()) {
+            db.Product.update({
+                name: req.body.name,
+                description: req.body.description,
+                category: req.body.category,
+                price: req.body.price,
+                image: req.file.filename
+            }, {
+                where: {
+                    id: req.params.id,
+                }
+            }).then(() => {
+                return res.redirect('/products')
+            })
+                .catch(error => console.log(error))
+        } else {
+            let id = req.params.id
+            db.Product.findByPk(id)
+                .then(productToEdit => {
+                    res.render("formulario-edicion-producto",
+                        {
+                            productToEdit,
+                            errors: resultValidation.mapped(),
+                            oldData: req.body
+                        });
+                }).catch(error => {
+                    console.log(error);
+                })
         }
-        db.Product.update({
-            name: req.body.name,
-            description: req.body.description,
-            category: req.body.category,
-            price: req.body.price,
-            image: req.file.filename,
-        }, {
-            where: {
-                id: req.params.id,
-            }
-        }).then(() => {
-            return res.redirect('/products')
-        })
-            .catch(error => console.log(error))
+
     },
 
     //Devolver Eliminar

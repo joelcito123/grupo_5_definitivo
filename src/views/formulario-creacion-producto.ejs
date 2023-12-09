@@ -10,65 +10,91 @@
 <body>
     <%- include('./partials/header')%>
         <main>
-            
-
-
-            <% if (locals.errors) { %>
-                <p> <%= errors === true %> </p>
-                <% for(let oneError = 0; oneError < errors.length; oneError++) { %>
-                    <p> <%= errors[oneError].msg %> </p>
-                <% } %>
-            <% } %>
-            
             <h2 class="title">Formulario de creación de productos</h2>
             <form action="/products/create" method="POST" enctype="multipart/form-data">
                 <div>
-                    <input 
-                        type="text" 
+                    <label for="name">Nombre:</label>
+                    <input type="text" 
                         id="name" 
                         name="name" 
                         placeholder="Nombre del producto" 
-                        class="product-name"
-                    >
+                        class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.name : null %>">
+                    <% if(locals.errors && errors.name) { %>
+                        <div class="text-danger">
+                            <%= errors.name.msg %>
+                        </div>
+                    <% } %>
                     <!-- <span class="error-message1"></span> -->
                 </div>
                 <div>
-                    <input 
-                        type="text" 
+                    <label for="price">Precio:</label>
+                    <input type="text" 
                         id="price" 
                         name="price" 
                         placeholder="Precio del producto" 
                         class="product-price"
-                    >
+                        value="<%= locals.oldData ? oldData.price : null %>"> 
+                    <% if(locals.errors && errors.price) { %>
+                        <p>
+                            <%= errors.price.msg %>
+                        </p>
+                    <% } %>
                 </div>
-                <label for="category" class="form-label">Categoría:</label>
-                <select name="category" id="category" class="product-category">
-                    <option value="">Elegí</option>
-                    <option value="desayuno">Desayuno</option>
-                    <option value="plato-principal">Plato principal</option>
-                </select>
-                <textarea name="description" id="description" class="product-description"
-                    placeholder="Descripcion del producto">
-                </textarea>
-                <span class="error-message2"></span>
                 <div>
-                    <input 
-                        type="file" 
-                        name="image" 
-                        id="image" 
-                        class="product-image"
-                    >
+                    <label for="category" class="form-label">Categoría:</label>
+
+                    <select name="category" id="category" class="product-category">
+                        <option value="">Elegí</option>
+                        <% let categorias = ["Plato principal", "Desayuno", "Postre"] %>
+                        <% for (let unaCategoria of categories) { %>
+                            <option value="<%= unaCategoria %>" 
+                                <%= locals.oldData && (unaCategoria == oldData.category) ? "selected" : null %> 
+                            > <%= unaCategoria %></option>
+                        <% } %>
+                    </select>
+                    <% if(locals.errors && errors.category) { %>
+                        <div class="text-danger">
+                            <%= errors.category.msg %>
+                        </div>
+                    <% } %>
                 </div>
-                <!--<span class="error-image"></span>-->
-                <button type="submit" class="submit">Guardar producto</button>
+                <div>
+                    <label for="description"></label>
+                    <textarea 
+                        name="description" 
+                        id="description" 
+                        class="product-description"
+                        placeholder="description"><%= locals.oldData ? oldData.description : null %></textarea>
+                    </textarea>
+                    <% if(locals.errors && errors.description) { %>
+                        <p>
+                            <%= errors.description.msg %>
+                        </p>
+                    <% } %>
+                    <!--<span class="error-message2"></span>-->
+                </div>
+                <div>
+                    <label for="image">Imagen:</label>
+                    <input type="file" 
+                            name="image" 
+                            id="image" 
+                            class="product-image"
+                            value="<%= locals.oldData ? oldData.image : null %>">
+                    <% if(locals.errors && errors.image) { %>
+                        <p>
+                            <%= errors.image.msg %>
+                        </p>
+                    <% } %>
+                     <!--<span class="error-image"></span>-->
+                </div>
+                <div>
+                    <button type="submit" class="submit">Guardar producto</button>
+                </div>
             </form>
         </main>
         <%- include('./partials/footer')%>
-<<<<<<< HEAD
-            <script src="/js/validaciones.js"></script>
-=======
-        <!-- <script src="/js/validaciones.js"></script> -->
->>>>>>> f5ad4d748dd5e2c0d3e498018562e0019365821c
+            <!--<script src="/js/validaciones.js"></script> -->
 </body>
 
 </html>
