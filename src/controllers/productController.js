@@ -51,8 +51,7 @@ const productController = {
     store: (req, res) => {
         const resultValidation = validationResult(req);
         if (resultValidation.isEmpty()) {
-            res.send("valido");
-            /*db.Product.create({
+            db.Product.create({
                 name: req.body.name,
                 description: req.body.description,
                 price: req.body.price,
@@ -62,15 +61,14 @@ const productController = {
             }).catch((error) => {
                 res.send(error)
             });
-            */
         } else {
             res.render("formulario-creacion-producto", {
                 errors: resultValidation.mapped()
             })
-            /*res.render("formulario-creacion-producto", {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })*/
+            // res.render("formulario-creacion-producto", {
+            //     errors: resultValidation.mapped(),
+            //     oldData: req.body
+            // })
         }
     },
 
