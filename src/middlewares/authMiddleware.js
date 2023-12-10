@@ -1,8 +1,9 @@
 function authMiddleware(req, res, next) {
-	if (!req.session.userLogged) {
-		return res.redirect('/user/login');
+	if (req.session.usuario != undefined) {
+		next();
+	} else {
+		res.send('Esta página es solo para usuarios logueados');
 	}
-	next();
 }
 
 module.exports = authMiddleware;
