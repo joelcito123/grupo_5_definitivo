@@ -3,15 +3,11 @@ const db = require('../../database/models');
 
 const productApiControllers = {
     list: (req, res) => {
-        db.Product.count({
-            include: [{association : "categories"}],
-            group: "categories.name"
-        })
-          /*
+        /*
         db.Product.findAll({
             include: [{association : "categories"}],,
             
-        })*/
+        })
             .then(productos => {
                 let resultado = {
                     meta: {
@@ -23,6 +19,13 @@ const productApiControllers = {
                 }
                     res.json(resultado);
             })
+        */
+        db.Product.count({
+            include: [{association : "categories"}],
+            group: "categories.name"
+        }).then(productos => {
+            res.json(productos);
+        })
     },
     detail: (req, res) => {
         db.Product.findByPk(req.params.id, {

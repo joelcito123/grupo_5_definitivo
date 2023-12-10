@@ -1,24 +1,46 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 /*Main*/
 
 main {
-    width: 50%;
     text-align: center;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form.form-padre {
+    margin: 20px;
     border: 1px solid black;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 400px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
-    padding-top: 20px;
-    margin: 10px;
+    margin: 30px;
 }
+
+div.form-group{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.form-group input,
+div.form-group select,
+div.form-group textarea {
+    width: 400px;
+}
+
+
+
+
+
+
+/*
+
 
 main form {
     display: flex;
@@ -57,3 +79,4 @@ main form button {
     display: none;
     color: red;
 }
+*/
