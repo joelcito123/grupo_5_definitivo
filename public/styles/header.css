@@ -1,57 +1,151 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-header {
-    background-color: #5465FF;
-    text-align: center;
-    height: auto;
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 .container-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    padding: 15px;
 }
 
-.logo-container {
-    width: 20%;
+/*elementos que no se mostraran por ahora*/
+.newlogo,
+.menu,
+.boton-buscar {
+    display: none;
 }
 
-.logo {
-    width: 70%;
+/* Fin*/
+
+header {
+    width: 100%;
+    border-bottom: 1px solid #cdcdcd;
 }
 
+.barras {
+    order: 0;
+    width: 10%;
+    text-align: center;
+    font-size: 25px;
+    margin: auto;
+    color: #696969;
+}
 
-.nav-container {
+.seccion-carrito {
+    order: 10;
+    width: 10%;
+    margin: auto;
+    font-size: 25px;
+    color: #696969;
+}
+
+/*Estilos de la barra de busqueda*/
+.seccion-buscar {
+    order: 5;
     width: 80%;
-    font-size: 1.3em;
-}
-
-.menu {
-    list-style-type: none;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 5%;
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
+.input-buscar {
+    width: 90%;
+    height: 35px;
+    border-radius: 20px;
+    border: solid #cdcdcd 1.6px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
+.input-buscar:focus {
+    outline: none;
+    border-color: #5e9eff;
+}
+
+/*Fin estilos de la barra de busqueda*/
 
 
+@media (min-width: 992px) {
+    /*elementos que no se mostraran*/
+    .barras,
+    .seccion-carrito {
+        display: none;
+    }
 
+    .container-header {
+        align-items: center;
+    }
 
+    /*elementos que se mostraran*/
+    .newlogo,
+    .menu,
+    .boton-buscar {
+        display: block;
+    }
 
-.bars-cnt,
-.user-icon,
-.cart-icon {
-    display: none;
+    /*Secciones*/
+
+    /*Seccion logo*/
+    .logo-container {
+        width: 18%;
+        text-align: center;
+    }
+    .newlogo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 30px;
+    }
+    /*fin seccion logo*/
+
+    /*secciones de pagina*/
+    .secciones-pagina {
+        width: 55%;
+    }
+    
+    .menu {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /*fin secciones de pagina*/
+
+    .seccion-buscar {
+        width: 25%;
+        position: relative;
+    }
+
+    .input-buscar {
+        width: 99%;
+        padding-right: 27px;
+    }
+
+    .boton-buscar {
+        width: 1%;
+        background-color: transparent;
+        border: none;
+    }
+
+    .icono-buscar {
+        position: relative;
+        right: 30px;
+        border-left: solid #cdcdcd 1.5px;
+        padding-left: 6px;
+        color: #696969;
+    }
+
+    .menu {
+        padding-right: 7px;
+    }
+
+    .menu li {
+        list-style-type: none;
+    }
+
+    .menu li a{
+        text-decoration: none;
+        color: #696969;
+    }
 }

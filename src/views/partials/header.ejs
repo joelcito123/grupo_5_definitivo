@@ -1,32 +1,26 @@
 <header>
     <div class="container-header">
         <figure class="logo-container">
-            <a href="/"><img src="/images/urbaneats.svg" alt="logo de la tienda" class="logo"></a>
+            <p class="newlogo">UrbanEats</p>
         </figure>
-        <div class="bars-cnt">
+        <div class="barras">
             <i class="fa-solid fa-bars bars"></i>
         </div>
-        <nav class="nav-container">
+        <nav class="secciones-pagina">
             <ul class="menu">
                 <li><a href="#">Quienes Somos</a></li>
                 <li><a href="/products">Todos los productos</a></li>
                 <li><a href="/user/register">Registrarse</a></li>
                 <li><a href="/user/login">Iniciar sesión</a></li>
             </ul>
-            <div class="iconos">
-                <div class="user-icon">
-                    <i class="fa-regular fa-circle-user"></i>
-                </div>
-                <div class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping cart"></i>
-                </div>
-            </div>
         </nav>
-        <div>
-            <form action="/products/buscar" method="GET">
-                <input type="text" name="buscar" id="buscar">
-                <button type="submit">chi</button> 
+            <div class="seccion-carrito">
+                <i class="fa-solid fa-cart-shopping cart"></i>
+            </div>
+
+            <form action="/products/buscar" method="GET" class="seccion-buscar">
+                <input type="text" name="buscar" id="buscar" class="input-buscar">
+                <button type="submit" class="boton-buscar"><i class="fas fa-search icono-buscar"></i></button>
             </form>
-        </div>
     </div>
 </header>
