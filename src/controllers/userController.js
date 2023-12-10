@@ -7,10 +7,10 @@
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 const {	validationResult } = require('express-validator');
-const db = require('../database/models');
+const db = require("../database/models");
 const { Op } = require("sequelize");
 
-const Users = db.User;
+
 const userController = {
 
     register: (req, res) => {
@@ -26,7 +26,7 @@ const userController = {
 				oldData: req.body
 			});
 		}
-        Users.findAll({
+        db.User.findAll({
             where: {
                 email: { [Op.eq]: req.body.email }
             }
@@ -46,7 +46,7 @@ const userController = {
                     oldData: req.body
                 });
             } else {
-                Users.create({
+                db.User.create({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
                     hashed_password: bcryptjs.hashSync(req.body.hashed_password, 10),
@@ -63,51 +63,34 @@ const userController = {
 		return res.render('login');
 	},
     loginProcess: (req, res) => {
-        let error = validationResult(req);
-        if(!error.isEmpty()){
-            res.render('login')
-        }
-        Users.findAll({
+        // let error = validationResult(req);
+        // if(!error.isEmpty()){
+        //     res.render('login')
+        // }
+        let usuarioALoguearse = req.body;
+        db.User.findAll({
             where: {
-                email: {[Op.eq]: req.body.email}
+                email: {
+                    [Op.eq]: usuarioALoguearse.email
+                },
             }
         })
-        .then(user => {
-            if (user.length>0) {
-                const userF = user[0];
-                console.log("if(userloginlengt ) si encontro un user");
-                let isOkThePassword = bcryptjs.compareSync(req.body.hashed_password, userF.hashed_password);   
-                if(isOkThePassword){
-                    delete userF.hashed_password;
-				    req.session.userLogged = userF;
-                    if(req.body.remember_user) {
-                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60)*60 })
-                    }
-                    return res.redirect('/user/profile');
-                } else {
-                    return res.render('login', {
-                        errors: {
-                            email: {
-                                msg: 'Las credenciales son inválidas'
-                            }
-                        }
-                    });
+        .then(usuario => {
+            if(usuarioALoguearse.email == usuario[0].dataValues.email && bcryptjs.compareSync(req.body.hashed_password, usuario[0].dataValues.hashed_password)){
+                req.session.usuario = usuario[0].dataValues;
+                if(req.body.remember_user != undefined){
+                    res.cookie('recordar', req.session.usuario.email, {maxAge: 60000 * 2})
                 }
+                res.redirect('/products');
             } else {
-                console.log("en el  else");
-                return res.render('login', {
-                    errors: {
-                        email: {
-                            msg: 'No se encuentra este email en nuestra base de datos'
-                        }
-                    }
-                });
+                console.log('hay algo mal');
             }
         })
+        .catch(error => {console.log(error);})
 	},
     profile: (req, res) => {
         return res.render('userProfile', {
-			user: req.session.userLogged
+			usuario: req.session.usuario
 		});
 	},
 

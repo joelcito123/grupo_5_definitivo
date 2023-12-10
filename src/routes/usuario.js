@@ -34,9 +34,18 @@ router.get('/login', guestMiddleware, userController.login);
 router.post('/login', validacionesLoginUsuario,userController.loginProcess);
 
 // Perfil de Usuario
-router.get('/profile/', authMiddleware, userController.profile);
+router.get('/profile', authMiddleware, userController.profile);
 
 // Logout
-router.get('/logout/', userController.logout);
+router.get('/logout', userController.logout);
+
+// ruta de prueba para session
+router.get('/usuario', function(req, res){
+        if(req.session.usuario == undefined){
+            res.send('No estas logueado')
+        } else {
+            res.send('El usuario logueado es ' + ' ' + req.session.usuario.email)
+        }
+})
 
 module.exports = router;
