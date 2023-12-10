@@ -3,98 +3,82 @@
     margin: 0;
     box-sizing: border-box;
 }
-/*Main CSS*/
-main{
-    background-color: purple;
+
+.titulo-seccion {
+    margin: 15px;
+    color: #4e4e4e;
 }
 
-div.productos{
-    display: flex;
-    flex-direction: column;
-}
-
-.productos article{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-}
-
-article .descripcion{
+.contenedor-producto {
     width: 90%;
-    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #f2f1f1;
+    box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.62);
+-webkit-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.62);
+-moz-box-shadow: 2px 2px 16px 0px rgba(0,0,0,0.62);
+}
+
+.contenedor-articulos {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid black;
-    background-color: rgba(255, 0, 179, 0.486);
-    border-radius: 0px 0px 20px 20px;
+    flex-wrap: nowrap;
+    margin: auto;
 }
 
-article img{
-    border: 1px solid black;
-    width: 90%;
+.contenedor-imagen {
+    width: 100%;
+    height: 180px;
 }
 
-h2{
-    font-size: 25px;
-    text-align: center;
-    color: rgb(255, 255, 255);
+.imagen-producto {
+    width: 100%;
+    height: 100%;
 }
 
-p.precio{
-    font-size: 20px;
-    color:rgb(0, 255, 115);
+.detalle-producto {
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Open Sans', sans-serif;
 }
 
-p.oferta{
-    display: none;
+.enlace-producto {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
 }
 
-p.nombre{
-    font-size: 15px;
-    color: rgb(255, 255, 255);
-}
+@media(min-width: 431px) {
+    .contenedor-producto {
+        width: 43%;
+        max-width: 400px;
+    }
 
-@media(min-width: 361px){
-    div.productos{
+    .contenedor-articulos {
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        gap: 5px;
     }
-    .productos article{
-        width: 44%;
+
+    .contenedor-imagen {
+        width: 100%;
+        height: 170px;
     }
-    /*
-    article img{
-        height: 180px;
-        object-fit: cover;
-    }
-    */
 }
 
-@media(min-width: 769px){
-    .productos article{
+@media(min-width: 992px) {
+
+    .contenedor-producto {
         width: 30%;
+        max-width: 600px;
     }
 
-    h2{
-        font-size: 25px;
-    }
-    
-    p.precio{
-        font-size: 25px;
-    }
-    
-    p.oferta{
-        display: none;
-    }
-    
-    p.nombre{
-        font-size: 15px;
+    .contenedor-imagen {
+        width: 100%;
+        height: 220px;
     }
 }
