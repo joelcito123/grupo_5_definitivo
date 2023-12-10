@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Perfil de usuario</title>
     <%- include('./partials/head') %>
 </head>
+
 <body>
     <%- include('./partials/header') %>
-    <main>
-        <div class="row">
-			<div class="col-md-3">
-				<h2>Hi <%= user.first_name %> </h2>
-				<img src="/images/users/<%= user.profile_image ? user.profile_image : 'default.png' %>" width="200">
-				<br>
-				<br>
-                <h2>Email:</h2>
-				<div class="alert alert-success"><%= user.email %> </div>
-                <button class="btn btn-primary">
-                    <a href="/user/logout" >Logout</a>
-                </button>
-			</div>
-		</div>
-    </main>
+        <main>
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>Hola <%= usuario.first_name + ' ' + usuario.last_name %></h1>
+                </div>
+            </div>
+        </main>
 </body>

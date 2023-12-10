@@ -8,4 +8,9 @@ router.get("/products", apiProductController.list);
 //Detalle de un producto
 router.get("/products/:id", apiProductController.detail);
 
+// categorias
+router.get('/categories', apiProductController.categorias);
+
+// imagenes
+
 module.exports = router;

@@ -1,8 +1,9 @@
-const express = require('express'); //Requerir express
-const path = require('path'); //Requerir Path
-const methodOverride = require('method-override'); //Requerir method-override
-const session = require('express-session'); //Requerir express-sessión
-const cookies = require('cookie-parser'); //Requerir cookie-parser
+const express = require('express');
+const path = require('path');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const cookies = require('cookie-parser');
+const recordarMiddleware = require('./middlewares/recordar');
 
 const app = express(); //Función express
 
@@ -16,11 +17,13 @@ app.use(session({
 app.use(cookies());
 
 app.use(userLoggedMiddleware);
+app.use(recordarMiddleware);
 
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 
 // Template de ejs
 
