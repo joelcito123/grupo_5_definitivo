@@ -1,4 +1,4 @@
-/*
+
 window.onload = function () {
     const nombre = document.querySelector('.product-name');
     const descripcion = document.querySelector('.product-description');
@@ -52,4 +52,3 @@ window.onload = function () {
     
 
 }
-*/

@@ -5,96 +5,98 @@
     <%- include('./partials/head')%>
         <title>Formulario de creacion</title>
         <link rel="stylesheet" href="/styles/formulario-creacion.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
     <%- include('./partials/header')%>
         <main>
-            <h2 class="title">Formulario de creación de productos</h2>
-            <form action="/products/create" method="POST" enctype="multipart/form-data">
-                <div>
-                    <label for="name">Nombre:</label>
-                    <input type="text" 
-                        id="name" 
-                        name="name" 
-                        placeholder="Nombre del producto" 
-                        class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.name : null %>">
-                    <% if(locals.errors && errors.name) { %>
-                        <div class="text-danger">
-                            <%= errors.name.msg %>
-                        </div>
-                    <% } %>
-                    <!-- <span class="error-message1"></span> -->
+            <form action="/products/create" method="POST" enctype="multipart/form-data" class="form-padre">
+                <h2 class="title">Formulario de creación de productos</h2>
+                <div class="campo-formulario">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" placeholder="Nombre del producto"
+                            class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.name : null %>">
+                        <% if(locals.errors && errors.name) { %>
+                            <div class="text-danger">
+                                <%= errors.name.msg %>
+                            </div>
+                            <% } %>
+                                <!-- <span class="error-message1"></span> -->
+                    </div>
                 </div>
-                <div>
-                    <label for="price">Precio:</label>
-                    <input type="text" 
-                        id="price" 
-                        name="price" 
-                        placeholder="Precio del producto" 
-                        class="product-price"
-                        value="<%= locals.oldData ? oldData.price : null %>"> 
-                    <% if(locals.errors && errors.price) { %>
-                        <p>
-                            <%= errors.price.msg %>
-                        </p>
-                    <% } %>
-                </div>
-                <div>
-                    <label for="category" class="form-label">Categoría:</label>
-
-                    <select name="category" id="category" class="product-category">
-                        <option value="">Elegí</option>
-                        <% let categorias = ["Plato principal", "Desayuno", "Postre"] %>
-                        <% for (let unaCategoria of categories) { %>
-                            <option value="<%= unaCategoria %>" 
-                                <%= locals.oldData && (unaCategoria == oldData.category) ? "selected" : null %> 
-                            > <%= unaCategoria %></option>
+                <div class="campo-formulario">
+                    <div class="form-group">
+                        <label for="price">Precio:</label>
+                        <input type="text" id="price" name="price" placeholder="Precio del producto"
+                            class= "form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.price : null %>">
+                        <% if(locals.errors && errors.price) { %>
+                            <div class="text-danger">
+                                <%= errors.price.msg %>
+                            </div>
                         <% } %>
-                    </select>
-                    <% if(locals.errors && errors.category) { %>
-                        <div class="text-danger">
-                            <%= errors.category.msg %>
-                        </div>
-                    <% } %>
+                                
+                    </div>
                 </div>
-                <div>
-                    <label for="description"></label>
-                    <textarea 
-                        name="description" 
-                        id="description" 
-                        class="product-description"
-                        placeholder="description"><%= locals.oldData ? oldData.description : null %></textarea>
-                    </textarea>
-                    <% if(locals.errors && errors.description) { %>
-                        <p>
-                            <%= errors.description.msg %>
-                        </p>
-                    <% } %>
-                    <!--<span class="error-message2"></span>-->
+                <div class="campo-formulario">
+                    <div class="form-group">
+                        <label for="category" class="form-label">Categoría:</label>
+                        <select name="category" id="category" class="form-control <%= locals.errors && errors.category ? 'is-invalid' : null %>">
+                            <option value="">Elegí la categoría del producto</option>
+                            <% for (let indice=0; indice < categories.length; indice++) { %>
+                                <option value="<%= categories[indice].name %>" <%=locals.oldData &&
+                                    (categories[indice].name==oldData.category) ? "selected" : null %>
+                                    > <%= categories[indice].name %>
+                                </option>
+                                <% } %>
+                        </select>
+                        <% if(locals.errors && errors.category) { %>
+                            <div class="text-danger">
+                                <%= errors.category.msg %>
+                            </div>
+                            <% } %>
+                    </div>
                 </div>
-                <div>
-                    <label for="image">Imagen:</label>
-                    <input type="file" 
-                            name="image" 
-                            id="image" 
-                            class="product-image"
+                <div class="campo-formulario">
+                    <div class="form-group">
+                        <label for="description">Descripción:</label>
+                        <textarea name="description" id="description" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
+                            placeholder="Descripción del producto"><%= locals.oldData ? oldData.description : null %></textarea>
+                        
+                        <% if(locals.errors && errors.description) { %>
+                            <div class="text-danger">
+                                <%= errors.description.msg %>
+                            </div>
+                            <% } %>
+                                <!--<span class="error-message2"></span>-->
+                    </div>
+                </div>
+                <div class="campo-formulario">
+                    <div class="form-group">
+                        <label for="image">Imagen:</label>
+                        <input type="file" name="image" id="image" class="form-control <%= locals.errors && errors.image ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.image : null %>">
-                    <% if(locals.errors && errors.image) { %>
-                        <p>
-                            <%= errors.image.msg %>
-                        </p>
-                    <% } %>
-                     <!--<span class="error-image"></span>-->
+                        <% if(locals.errors && errors.image) { %>
+                            <div class="text-danger">
+                                <%= errors.image.msg %>
+                            </div>
+                            <% } %>
+                                <!--<span class="error-image"></span>-->
+                    </div>
                 </div>
-                <div>
-                    <button type="submit" class="submit">Guardar producto</button>
+                <div class="campo-formulario">
+                    <div class="form-group"> 
+                        <button type="submit" class="form-control">Guardar producto</button>
+                    </div>
                 </div>
             </form>
         </main>
         <%- include('./partials/footer')%>
-        <!-- <script src="/js/validaciones.js"></script> -->
+            <!-- <script src="/js/validaciones.js"></script> -->
 </body>
 
 </html>

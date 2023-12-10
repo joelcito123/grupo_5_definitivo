@@ -107,7 +107,7 @@ const productController = {
                 res.render("formulario-edicion-producto", { productToEdit });
             }).catch(error => {
                 console.log(error);
-            })
+            }) 
     },
 
     //Devolver Editar
@@ -127,7 +127,8 @@ const productController = {
             }).then(() => {
                 return res.redirect('/products')
             })
-                .catch(error => console.log(error))
+                .catch(error => console.log(error));
+            
         } else {
             let id = req.params.id
             db.Product.findByPk(id)
@@ -140,7 +141,8 @@ const productController = {
                         });
                 }).catch(error => {
                     console.log(error);
-                })
+                })   
+            
         }
 
     },
