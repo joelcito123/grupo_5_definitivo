@@ -2,6 +2,7 @@
 //const path = require('path');
 const db = require("../database/models");
 
+
 //const productsFilePath = path.join(__dirname, '../data/productsData.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -20,9 +21,6 @@ const controlador = {
     carrito: (req, res) => {
         res.render('productCart');
     },
-    buscar: (req, res) => {
-        res.render("buscar");
-    }
     
 }
 

@@ -1,12 +1,12 @@
-const express = require('express');
-const path = require('path');
-const methodOverride = require('method-override');
-const session = require('express-session');
-const cookies = require('cookie-parser');
+const express = require('express'); //Requerir express
+const path = require('path'); //Requerir Path
+const methodOverride = require('method-override'); //Requerir method-override
+const session = require('express-session'); //Requerir express-sessión
+const cookies = require('cookie-parser'); //Requerir cookie-parser
 
-const app = express();
+const app = express(); //Función express
 
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware'); 
 
 app.use(session({
     secret: 'secreto',

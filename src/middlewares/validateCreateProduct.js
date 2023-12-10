@@ -11,6 +11,8 @@ module.exports = [
     body("description")
         .notEmpty().withMessage("Es necesario poner la descripción").bail()
         .isLength({min: 20}).withMessage("La descripción debe tener al menos 20 caracteres"),
+    body("category")
+        .notEmpty().withMessage("Es necesario elegir una categoria").bail(),
     body("image").custom((value, { req }) => {
         let file = req.file;
 		let acceptedExtensions = ['.jpg' ,'.png', '.jpeg'];

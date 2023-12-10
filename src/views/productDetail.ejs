@@ -27,6 +27,9 @@
                         </div>
                     </div>
                 </div>
+                    
+                <button type="submit" class="button-edit"><a href="/products/edition/<%= product.id %>">Editar</a></button>
+
                 <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
                     <button type="submit" class="button-delete">Eliminar</button>
                 </form>

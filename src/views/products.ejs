@@ -15,7 +15,9 @@
 
         <main>
             <h1 class="title">Todos los productos</h1>
+            
             <section>
+              
                 <% products.forEach(producto => { %>
                     <a href="/products/detail/<%= producto.id %>">
                         <figure>
@@ -29,6 +31,7 @@
                         </article>
                     </a>
                 <% }) %>
+            
             </section>
         </main>
 
