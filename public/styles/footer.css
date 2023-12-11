@@ -1,58 +1,117 @@
-:root {
-    --morado: #74226C;
-    --verde: #97EAD2;
-    --celeste: #55dde0;
-    --amarillo: #f6ae2d;
-    --naranja: #f26419;
-}
-
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 footer {
-    background-color: #5465FF;
+    background-color: #fff;
+    border-top: 1px solid #cdcdcd;
+}
+
+.contenedor-footer {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     flex-direction: row;
-    flex-wrap: nowrap;
-    height: 12vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.list-footer {
-    list-style-type: none;
-}
-
-.item-footer a,
-.item-footer a i,
-.copy-footer,
 .title-footer {
-    color: white;
-}
-
-.item-footer a i{
-    font-size: 1.5em;
+    display: none;
+    color: #4e4e4e;
 }
 
 .list-footer {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    text-align: center;
     gap: 20px;
 }
 
-.title-footer,
-.list-footer,
-.copy-footer {
-    width: 33.3%;
-    text-align: center;
+.list-footer li {
+    list-style-type: none;
+    color: #4e4e4e;
 }
 
-.list-footer a{
+.list-footer li a {
     text-decoration: none;
+    color: inherit;
+}
+
+.list-footer li a i {
+    font-size: 21px;
+}
+
+.copy-footer {
+    color: #4e4e4e;
+    font-size: 14px;
+    padding: 20px;
+}
+
+@media (min-width: 564px) {
+    
+    .list-footer {
+        width: 40%;
+    }
+
+    .copy-footer {
+        text-align: center;
+        width: 40%;
+    }
+}
+
+@media (min-width: 750px){
+    .title-footer {
+        display: block;
+        width: 60%;
+        font-size: 20px;
+    }
+
+    .contenedor-footer { 
+        text-align: center;
+    }
+
+    .list-footer {
+        width: 30%;
+        padding: 0;
+    }
+
+    .copy-footer{
+        padding-top: 20px;
+    }
+}
+
+@media (min-width: 882px) {
+    .title-footer {
+        width: 30%;
+    }
+
+    .list-footer {
+        width: 30%;
+    }
+
+    .copy-footer {
+        width: 40%;
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 1202px){
+    .title-footer {
+        width: 20%;
+    }
+
+    .list-footer {
+        width: 20%;
+    }
+
+    .copy-footer {
+        width: 60%;
+        justify-self: flex-start;
+        text-align: end;
+    }
 }
