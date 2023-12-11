@@ -4,30 +4,43 @@
 <head>
     <%- include('./partials/head')%>
         <title>UrbanEats Jujuy</title>
-        <link rel="stylesheet" href="/styles/stylesHome.css">
+        <link rel="stylesheet" href="/styles/search.css">
 </head>
 
 <body>
     <%- include('./partials/header')%>
         <main>
-            <% if(locals.productos) { %>
-                <% productos.forEach(producto => { %>
-                    <a href="/products/detail/<%= producto.id %>">
-                        <figure>
-                            <img src="/images/products/<%= producto.image %>" alt="Imagen del producto">
-                        </figure>
-                        <article>
-                            <p class="nombre"><%= producto.name %>
-                            </p>
-                            <p class="precio">$<%= producto.price %>
-                            </p>
-                        </article>
-                    </a>
-                <% }) %>
-                <% if(productos == "") { %>
-                    <p>No se encontraron resultados</p>
-                <% } %>
-            <% } %>
+            <section class="contenedor-articulos">
+                <% if(locals.productos) { %>
+                    <% if(locals.errors) { %>
+                        <% if(errors) { %>
+                            <p> Buscar algo por favor </p>
+                                <% } %>
+                                    <% } else { %>
+                                        <% productos.forEach(producto=> { %>
+                                            <div class="contenedor-producto">
+                                                <a href="/products/detail/<%= producto.id %>" class="enlace-producto">
+                                                    <figure class="contenedor-imagen">
+                                                        <img src="/images/products/<%= producto.image %>" class="imagen-producto"
+                                                            alt="Imagen del producto" >
+                                                    </figure>
+                                                    <article class="contenedor-descripcion">
+                                                        <p class="nombre">
+                                                            <%= producto.name %>
+                                                        </p>
+                                                        <p class="precio">$<%= producto.price %>
+                                                        </p>
+                                                    </article>
+                                                </a>
+                                            </div>
+
+                                            <% }) %>
+                                                <% if(productos=="" ) { %>
+                                                    <p>No se encontraron resultados</p>
+                                                    <% } %>
+                                                        <% } %>
+                                                            <% } %>
+            </section>
         </main>
         <%- include('./partials/footer')%>
 </body>
