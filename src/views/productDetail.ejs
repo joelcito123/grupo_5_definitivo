@@ -3,36 +3,57 @@
 
 <head>
     <%- include('./partials/head') %>
-    <title>UrbanEats - Detalle producto</title>
-    <link rel="stylesheet" href="/styles/productDetail.css">
+        <title>UrbanEats - Detalle producto</title>
+        <link rel="stylesheet" href="/styles/productDetail.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 
 <body>
     <%- include('./partials/header') %>
         <main>
-            <h1>Detalle del producto: <%= product.name %></h1>
-            <section>
-                <h1><%= product.name %></h1>
-                <div class="producto-principal">
-                    <figure class="principal">
-                        <img src="/images/products/<%= product.image %>" alt="imagen del producto">
+            <section class="contenedor-articulo">
+                <h1 class="title">Detalle del producto: <%= product.name %>
+                </h1>
+                <h2 class="subtitle">
+                    <%= product.name %>
+                </h2>
+                <div class="contenedor-producto">
+                    <figure class="contenedor-imagen">
+                        <img src="/images/products/<%= product.image %>" class="imagen-producto"
+                            alt="imagen del producto">
                     </figure>
-                    <div class="detalles">
-                        <p class="descripcion"><%= product.description %></p>
-                        <p class="precio">$<%= product.price %></p>
-                        <div class="botones">
+                    <div class="contenedor-contenido">
+                        <div class="contenedor-descripcion">
+                            <p class="titulo-descripcion">Descripción:</p>
+                            <p class="descripcion">
+                                <%= product.description %>
+                            </p>
+                        </div>
+                        <div class="contenedor-precio">
+                            <p class="titulo-precio">Precio:</p>
+                            <p class="precio">
+                                $<%= product.price %>
+                            </p>
+                        </div>
+
+                        <div class="contenedor-boton">
                             <button>Lo quiero ya!!!</button>
                             <button>Agregar al carrito</button>
                         </div>
                     </div>
-                </div>
-                    
-                <button type="submit" class="button-edit"><a href="/products/edition/<%= product.id %>">Editar</a></button>
 
-                <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="button-delete">Eliminar</button>
-                </form>
+                    <div class="contenedor-manipular">
+                        <a href="/products/edition/<%= product.id %>" class="contenedor-editar"><button type="submit"
+                                class="boton-editar">Editar</button></a>
+
+                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST"
+                            class="contenedor-eliminar">
+                            <button type="submit" class="boton-eliminar">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
             </section>
         </main>
         <%- include('./partials/footer')%>

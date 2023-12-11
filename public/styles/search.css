@@ -20,6 +20,8 @@ main {
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    min-height: 76.8vh;
+    justify-content: center;
 }
 
 .title {
@@ -31,7 +33,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .contenedor-producto {

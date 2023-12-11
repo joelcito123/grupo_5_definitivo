@@ -34,7 +34,9 @@ div.form-group textarea {
     width: 400px;
 }
 
-
+textarea.form-control {
+    resize: none;
+}
 
 
 

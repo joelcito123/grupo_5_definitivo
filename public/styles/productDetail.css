@@ -1,4 +1,122 @@
-* {
+/*Main*/
+
+
+main {
+    margin: 20px;
+    min-height: 72.5vh;    
+}
+
+.contenedor-articulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title, 
+.subtitle {
+    margin: 10px;
+}
+
+.contenedor-producto {
+    margin: 10px;
+}
+
+.contenedor-imagen {
+    width: 100%;
+    height: 420px;
+}
+
+.imagen-producto {
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-contenido {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+.contenedor-descripcion {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.contenedor-precio {
+    display: flex;
+    flex-direction: column;
+}
+
+.descripcion {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0px
+}
+
+.contenedor-boton, 
+.contenedor-precio {
+    width: 50%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.titulo-precio,
+.titulo-descripcion {
+    margin: 5px;
+}
+
+.contenedor-boton {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-manipular {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.contenedor-editar,
+.contenedor-eliminar {
+    width: 48%;
+}
+
+.boton-editar,
+.boton-eliminar {
+    width: 100%;
+}
+
+.contenedor-boton button {
+    width: 45%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -6,7 +124,7 @@
 body{
     background-color: purple;
 }
-/*Aplicando CSS al main*/
+/*Aplicando CSS al main
 
 main{
     background-color: purple; 
@@ -78,7 +196,7 @@ div.producto-secundario figure img{
 }
 
 @media(min-width: 361px){
-    /*Main CSS*/
+    /*Main CSS
     div.producto-secundario{
         flex-wrap: wrap;
         flex-direction: row;
@@ -86,4 +204,4 @@ div.producto-secundario figure img{
     div.producto-secundario img{
         width: 43%;
     }
-}
+}*/
