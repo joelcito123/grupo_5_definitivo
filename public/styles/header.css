@@ -36,6 +36,11 @@ header {
     color: #696969;
 }
 
+.link-header {
+    text-decoration: none;
+    color: inherit;
+}
+
 .seccion-carrito {
     order: 10;
     width: 10%;
