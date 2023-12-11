@@ -27,6 +27,7 @@ main {
 }
 
 .contenedor-articulos {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -68,7 +69,6 @@ main {
     .contenedor-imagen {
         width: 100%;
         height: 160px;
-        
     }
 }
 @media (min-width: 769px){
@@ -89,29 +89,3 @@ main {
         height: 260px;
     }
 }
-
-/*
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    background-color: #9000B3;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-.title,
-.nombre,
-.precio {
-    color: #f49c0a;
-}
-
-.nombre,
-.precio {
-    font-size: 25px;
-}
-
-a {
-    text-decoration: none;
-}*/
-
