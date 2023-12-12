@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Editar Usuario</title>
+    <%- include('./partials/head') %>
+
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <form action="/user/<%= usuarioEditar.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <h2>Formulario de edicion de usuario</h2>
+                <p>Editando: <%= usuarioEditar.first_name + ' ' + usuarioEditar.last_name %>
+                </p>
+                <label for="name">Nombre:</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Nuevo nombre" class="form-control">
+                <input type="text" id="last_name" name="last_name" placeholder="Nuevo apellido" class="form-control">
+                <input type="file" name="profile_image" id="image">
+                <button type="submit">Confirmar edicion</button>
+            </form>
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

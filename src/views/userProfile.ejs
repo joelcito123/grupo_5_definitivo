@@ -13,6 +13,14 @@
                 <div class="col-md-3">
                     <h1>Hola <%= usuario.first_name + ' ' + usuario.last_name %></h1>
                 </div>
+                <figure>
+                    <img src="/images/users/<%= usuario.profile_image %>" alt="imagen-del-usuario">
+                </figure>
+                <form action="/user/edit/<%= usuario.id %>" method="GET">
+                    <button type="submit">Editar información</button>
+                </form>
+                
             </div>
         </main>
+    <%- include('./partials/footer') %>
 </body>

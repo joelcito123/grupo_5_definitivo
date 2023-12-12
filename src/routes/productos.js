@@ -49,11 +49,11 @@ router.get("/buscar", productosController.search); //Mostrar el producto buscado
 
 //Rutas pertenecientes al CRUD
 
-router.get('/create', productosController.create); //Mostrar Create
+router.get('/create', authMiddleware, productosController.create); //Mostrar Create
 
 router.post('/create', upload.single('image'), validationsProduct, productosController.store); //Devolver Create 
 
-router.get('/edition/:id', productosController.edit); //Mostrar Update
+router.get('/edition/:id', authMiddleware, productosController.edit); //Mostrar Update
 
 router.put('/:id', upload.single('image'), validationsProduct, productosController.update); //Devolver Update
 

@@ -18,7 +18,11 @@ module.exports = (sequelize, dataTypes) => {
         hashed_password: {
             type: dataTypes.STRING,
             allowNull: false
-        }
+        },
+        profile_image: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
     };
     let config = {
         tableName: "users",
