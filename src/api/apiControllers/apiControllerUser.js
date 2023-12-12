@@ -3,7 +3,13 @@ const { use } = require("../apiRoutes/apiProductRoutes");
 
 const apiControllersUser = {
     list: (req, res) => {
-        db.User.findAll()
+        db.User.findAll({
+            attributes: [
+                "first_name",
+                "last_name",
+                "email",
+            ]
+        })
             .then(users => {
                 let resultado = {
                     meta: {
