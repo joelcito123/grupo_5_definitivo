@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2023 a las 03:35:45
+-- Tiempo de generación: 12-12-2023 a las 21:02:28
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `urbaneats_prueba`
+-- Base de datos: `urbaneats`
 --
 
 -- --------------------------------------------------------
@@ -94,14 +94,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'Humita', 'loren', 2000.00, 'humitas.jpg', 3, '2023-10-24 19:07:19', '2023-11-05 15:42:45'),
-(2, 'Empanadas de pollo', 'lorem ipsum', 2000.00, 'empanadas.jpg', 3, '2023-10-24 19:11:55', '2023-11-05 15:43:31'),
+(1, 'Humita', 'loren', 2000.00, 'Humitas-700x420.jpg', 3, '2023-10-24 19:07:19', '2023-11-09 20:21:14'),
+(2, 'Empanadas de carne', 'lorem ipsum', 2000.00, 'empanadas.jpg', 3, '2023-10-24 19:11:55', '2023-12-12 20:02:01'),
 (3, 'Locro', 'lorem ipsum', 2000.00, 'locro.jpg', 1, '2023-10-24 19:13:08', '2023-11-05 15:44:17'),
-(4, 'Tamales', 'lorem ipsum', 2000.00, 'tamales.jpg', 3, '2023-10-24 19:16:30', '2023-11-05 15:44:51'),
+(4, 'Tamales', 'lorem ipsum', 2000.00, 'Tamales-700x420.jpg', 3, '2023-10-24 19:16:30', '2023-12-12 20:00:56'),
 (5, 'Carne de llama', 'lorem ipsum', 2000.00, 'carne-llama.jpg', 1, '2023-10-24 19:16:30', '2023-11-05 15:45:13'),
 (6, 'Guiso de lentejas', 'lorem ipsum', 2000.00, 'guiso-lentejas.jpg', 1, '2023-10-24 19:16:30', '2023-11-05 15:45:43'),
-(7, 'Zapallito relleno', 'lorem ipsum', 2000.00, 'zapallito-relleno.jpg', 1, '2023-10-24 19:16:30', '2023-11-05 15:46:47'),
-(19, 'Polenta', 'lorem ipsum', 1500.00, 'image-1699198038929.jpg', NULL, '2023-11-05 15:27:18', '2023-11-05 15:27:18');
+(7, 'Zapallito relleno', 'lorem ipsum', 2000.00, 'zapallito.jpg', 1, '2023-10-24 19:16:30', '2023-11-09 20:14:13'),
+(8, 'Polenta', 'lorem ipsum', 2000.00, 'Polenta-700x420.jpg', 1, '2023-10-24 19:16:30', '2023-11-09 20:12:00'),
+(29, 'joelcito', 'asdddddddddddddddddddddddddddddddddddddddddddddd', 12345.00, 'image-1702264612904.jpg', NULL, '2023-12-09 21:33:59', '2023-12-11 03:16:52');
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `hashed_password`, `salt`,
 (7, 'Jourdain', 'Stoddart', '$2a$04$qDhO9Zeg8r.9jozQllt9yOK39dlRF.ZY9XBNylXVRT58ncUfJV3he', '10', 'http://dummyimage.com/185x100.png/dddddd/000000', 9, 'jstoddart6@flavors.me'),
 (8, 'Roda', 'Cudde', '$2a$04$NEcZfQyvTGZl55xbCxUnROE33CQqgvpcXQFafHCxIxq66hXQ3IqHy', '10', 'http://dummyimage.com/133x100.png/cc0000/ffffff', 2, 'rcudde7@google.co.jp'),
 (9, 'Guido', 'Shippard', '$2a$04$POWCSQctF.MDyr1xcY3JT.5PAE/BDl3pLIQmRIsBm7oyIQQkgam3a', '10', 'http://dummyimage.com/210x100.png/dddddd/000000', 8, 'gshippard8@youku.com'),
-(10, 'Sileas', 'Pryor', '$2a$04$jEfpXl9IvQMfpg9ezxD3dOwzpH2FphNuSyyWApdovSoL96Zjj0rJi', '10', 'http://dummyimage.com/139x100.png/dddddd/000000', 5, 'spryor9@dot.gov');
+(10, 'Sileas', 'Pryor', '$2a$04$jEfpXl9IvQMfpg9ezxD3dOwzpH2FphNuSyyWApdovSoL96Zjj0rJi', '10', 'http://dummyimage.com/139x100.png/dddddd/000000', 5, 'spryor9@dot.gov'),
+(11, 'ddd', 'fddfdds', '$2a$10$vyf.CrW7VIEYWKDAZLABzewL18cD44Bq2ga6o5qfMnHI/T.GYsZOi', '', '1699726042158_img.png', 0, 'joelagustin239@gmail.com'),
+(12, 'jossdi', 'abcdefg', '$2a$10$LeP7lzkxhrc1vdXp2tN4CeT7frwoX3VMhtilOeEk9IdB2MBwXB7ra', '', '1701990151665_img.jpg', 0, 'j29@gmail.com'),
+(13, 'sdaasssad', 'sadasddsadas', '$2a$10$lAtFmwKlF5YUJxY5Zj293OVdHVG9f1NwlOIn5sT.qiA8ohh9ir6VO', '', '1702264981214_img.jpeg', 0, 'tin239@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -225,7 +229,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `product_order`
@@ -237,7 +241,7 @@ ALTER TABLE `product_order`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
