@@ -16,9 +16,7 @@
                 <figure>
                     <img src="/images/users/<%= usuario.profile_image %>" alt="imagen-del-usuario">
                 </figure>
-                <form action="/user/edit/<%= usuario.id %>" method="GET">
-                    <button type="submit">Editar información</button>
-                </form>
+                    <a href="/user/edit/<%= usuario.id %>"><button type="submit">Editar información</button></a>
                 
             </div>
         </main>

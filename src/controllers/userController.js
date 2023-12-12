@@ -118,21 +118,32 @@ const userController = {
             })
     },
     update: (req, res) => {
-        db.User.update({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            profile_image: req.file.filename,
-        }, {
-            where: {
-                id: req.params.id,
-            }
-        }).then(() => {
-            req.session.destroy();
-            return res.redirect('/user/login')
-        }).catch(error => console.log(error))
+        const resultValidation = validationResult(req);
+        if (resultValidation.isEmpty()) {
+            db.User.update({
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                profile_image: req.file.filename
+            }, {
+                where: {
+                    id: req.params.id,
+                }
+            }).then(() => {
+                return res.redirect('/user/login')
+            })
+                .catch(error => console.log(error));
 
+        } else {
+            let id = req.params.id;
+        db.User.findByPk(id)
+            .then(usuarioEditar => {
+                res.render("editar-usuario", { usuarioEditar });
+            }).catch(error => {
+                console.log(error);
+            })
+        }
 
-    }
+    },
 
 }
 

@@ -21,6 +21,9 @@ const controlador = {
     carrito: (req, res) => {
         res.render('productCart');
     },
+    quienesSomos: (req, res) => {
+        res.render('quienesSomos')
+    }
     
 }
 

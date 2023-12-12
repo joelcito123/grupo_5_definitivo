@@ -49,6 +49,6 @@ router.get('/usuario', function(req, res){
 
 // editar usuario
 router.get('/edit/:id', userController.edit);
-router.put('/:id', uploadFile.single('profile_image'), userController.update)
+router.put('/:id', uploadFile.single('profile_image'), validations, userController.update)
 
 module.exports = router;

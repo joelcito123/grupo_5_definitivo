@@ -38,15 +38,15 @@ const productApiControllers = {
     },
     categorias: (req, res) => {
         
-        db.Category.count({
-            include: [{ association: "products" }],
-            group: "category_id"
-        })
-            .then(productos => {
+        // // db.Category.count({
+        // //     include: [{ association: "products" }],
+        // //     group: "category_id"
+        // // })
+        // //     .then(productos => {
                 
-                res.json(productos);
-            })
-        /*
+        // //         res.json(productos);
+        // //     })
+        
         db.Category.findAll()
             .then(categorias => {
                 let resultado = {
@@ -59,7 +59,7 @@ const productApiControllers = {
                 }
                 res.json(resultado)
             })
-            */
+            
     },
 }
 
