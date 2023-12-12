@@ -16,14 +16,14 @@ function buscarUsuarioCookie(req, res, next){
             if (usuario) {
                 req.session.usuario = usuario.dataValues;
             }
-            next(); // Asegúrate de llamar a 'next()' después de la operación asíncrona
+            next();
         })
         .catch(err => {
             console.error(err);
-            next(); // Manejo de errores: llama a 'next()' en caso de error
+            next();
         });
     } else {
-        next(); // Llama a 'next()' si no hay correo electrónico en la cookie
+        next();
     }
 }
 
