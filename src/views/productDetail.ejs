@@ -45,13 +45,15 @@
                     </div>
 
                     <div class="contenedor-manipular">
-                        <a href="/products/edition/<%= product.id %>" class="contenedor-editar"><button type="submit"
+                        <% if (usuario && usuario.first_name == 'Daniel') { %>
+                            <a href="/products/edition/<%= product.id %>" class="contenedor-editar"><button type="submit"
                                 class="boton-editar">Editar</button></a>
 
                         <form action="/products/<%= product.id %>?_method=DELETE" method="POST"
                             class="contenedor-eliminar">
                             <button type="submit" class="boton-eliminar">Eliminar</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
             </section>

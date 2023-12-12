@@ -41,7 +41,7 @@ const validacionesProductos = [
 */
 //Rutas principales de products
 
-router.get('/', productosController.index); //Mostrar Todos los productos
+router.get('/', authMiddleware,productosController.index); //Mostrar Todos los productos
 
 router.get('/detail/:id', productosController.detail); //Mostrar el Detalle de un producto 
 
@@ -49,7 +49,7 @@ router.get("/buscar", productosController.search); //Mostrar el producto buscado
 
 //Rutas pertenecientes al CRUD
 
-router.get('/create', authMiddleware, productosController.create); //Mostrar Create
+router.get('/create', productosController.create); //Mostrar Create
 
 router.post('/create', upload.single('image'), validationsProduct, productosController.store); //Devolver Create 
 

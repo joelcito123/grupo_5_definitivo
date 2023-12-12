@@ -46,6 +46,7 @@ const apiUsersRouter = require("./api/apiRoutes/apiUsersRoutes");
 
 app.use("/api", apiProductsRouter);
 app.use("/api", apiUsersRouter);
+
 // Error 404
 app.use((req, res, next) => {
     res.status(404).render('no-encontrado');

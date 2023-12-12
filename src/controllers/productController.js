@@ -30,7 +30,10 @@ const productController = {
         const id = req.params.id;
         db.Product.findByPk(id)
             .then(product => {
-                res.render("productDetail", { product: product })
+                res.render("productDetail", {
+                    product: product,
+                    usuario: req.session.usuario,
+                })
             }).catch(error => {
                 console.log(error);
             })
@@ -67,7 +70,14 @@ const productController = {
     create: (req, res) => {
         db.Category.findAll()
             .then(categories => {
-                res.render("formulario-creacion-producto", { categories });
+                req.session.isAdmin = false;
+                if (req.session.usuario && req.session.usuario.first_name == 'Daniel') {
+                    req.session.isAdmin = true;
+                    res.render("formulario-creacion-producto", { categories });
+                } else {
+                    res.redirect('/products')
+                }
+
             }).catch(error => {
                 console.log(error);
             })
@@ -89,16 +99,16 @@ const productController = {
             });
         } else {
             db.Category.findAll()
-            .then(categories => {
-                res.render("formulario-creacion-producto", 
-                    {
-                        categories,
-                        errors: resultValidation.mapped(),
-                        oldData: req.body
-                    });
-            }).catch(error => {
-                console.log(error);
-            })
+                .then(categories => {
+                    res.render("formulario-creacion-producto",
+                        {
+                            categories,
+                            errors: resultValidation.mapped(),
+                            oldData: req.body
+                        });
+                }).catch(error => {
+                    console.log(error);
+                })
         }
 
 
@@ -109,10 +119,17 @@ const productController = {
         let id = req.params.id;
         db.Product.findByPk(id)
             .then(productToEdit => {
-                res.render("formulario-edicion-producto", { productToEdit });
+                req.session.isAdmin = false;
+                if (req.session.usuario && req.session.usuario.first_name == 'Daniel') {
+                    req.session.isAdmin = true;
+                    res.render("formulario-edicion-producto", { productToEdit });
+                } else {
+                    res.redirect('/products')
+                }
+
             }).catch(error => {
                 console.log(error);
-            }) 
+            })
     },
 
     //Devolver Editar
@@ -133,7 +150,7 @@ const productController = {
                 return res.redirect('/products')
             })
                 .catch(error => console.log(error));
-            
+
         } else {
             let id = req.params.id
             db.Product.findByPk(id)
@@ -146,8 +163,8 @@ const productController = {
                         });
                 }).catch(error => {
                     console.log(error);
-                })   
-            
+                })
+
         }
 
     },
