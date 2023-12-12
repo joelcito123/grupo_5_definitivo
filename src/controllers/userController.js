@@ -9,6 +9,7 @@ const bcryptjs = require('bcryptjs');
 const {	validationResult } = require('express-validator');
 const db = require("../database/models");
 const { Op } = require("sequelize");
+const { log } = require('console');
 
 
 const userController = {
@@ -78,6 +79,9 @@ const userController = {
         .then(usuario => {
             if(usuarioALoguearse.email == usuario[0].dataValues.email && bcryptjs.compareSync(req.body.hashed_password, usuario[0].dataValues.hashed_password)){
                 req.session.usuario = usuario[0].dataValues;
+                if(req.body.remember_user) {
+                    res.cookie('emailUsuario', req.body.email, {maxAge: (1000 * 60) * 2})
+                }
                 res.redirect('/products');
             } else {
                 console.log('hay algo mal');
@@ -86,16 +90,15 @@ const userController = {
         .catch(error => {console.log(error);})
 	},
     profile: (req, res) => {
-        console.log(req.cookies.recordar);
+        console.log(req.cookies.emailUsuario);
         return res.render('userProfile', {
 			usuario: req.session.usuario,
 		});
-        console.log(req.session.usuario);
         
 	},
 
 	logout: (req, res) => {
-		res.clearCookie('userEmail');
+        res.clearCookie('emailUsuario')
 		req.session.destroy();
 		return res.redirect('/');
 	},

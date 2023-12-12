@@ -3,6 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const usuarioCookie = require('./middlewares/recordarMiddleware')
 
 const app = express(); //Función express
 
@@ -15,7 +16,9 @@ app.use(session({
 }));
 app.use(cookies());
 
+app.use(usuarioCookie)
 app.use(userLoggedMiddleware);
+
 
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
