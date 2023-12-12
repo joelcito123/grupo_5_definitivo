@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { check } = require('express-validator');
+const { body } = require('express-validator');
 
 //Requiero el controlador
 const userController = require('../controllers/userController');
@@ -12,10 +12,10 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 const validacionesLoginUsuario = [
-    check('email')
-    .isEmail().withMessage('Debe ser un email valido')
-    .isEmpty().withMessage('El email es obligatorio'),
-    check('password')
+    body('email')
+    .notEmpty().withMessage('Debes completar el campo de email')
+    .isEmail().withMessage('Debe ser un email valido'),
+    body('hashed_password')
     .notEmpty().withMessage('Contraseña no valida'),
 ]
 

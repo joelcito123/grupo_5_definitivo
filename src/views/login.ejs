@@ -18,13 +18,23 @@
                 <div class="col-md-6 my-2">
                     <div class="form-group">
                         <label><b>Correo electrónico:</b></label>
-                        <input type="text" name="email" class="form-control">
+                        <input type="text" name="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %> 
+                            </div>
+                        <% } %>
                     </div>
                 </div>
                 <div class="col-md-6 my-2">
                     <div class="form-group">
                         <label><b>Password:</b></label>
-                        <input type="password" name="hashed_password" class="form-control">
+                        <input type="password" name="hashed_password" class="form-control <%= locals.errors && errors.hashed_password? 'is-invalid' : null %>">
+                        <% if (locals.errors && errors.hashed_password) { %>
+                            <div class="text-danger">
+                                <%= errors.hashed_password.msg %> 
+                            </div>
+                        <% } %>
                         <div class="invalid-feedback">
                         </div>
                     </div>

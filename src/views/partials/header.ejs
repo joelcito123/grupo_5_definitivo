@@ -13,13 +13,14 @@
                 <li><a href="#">Quienes Somos</a></li>
                 <li><a href="/products">Todos los productos</a></li>
                 <% if (locals.estaLogueado) { %>
-                    <a href="/user/profile">Hola <%= locals.usuario.first_name %></a>
-                    <a href="/user/logout">Cerrar sesión</a>
+                    <li><a href="/user/profile">Hola <%= locals.usuario.first_name %></a></li>
+                    <li><a href="/user/logout">Cerrar sesión</a></li>
+                    <li><a href="/products/create">Vender</a></li>
                     <% } else {%>
                         <li><a href="/user/register">Registrarse</a></li>
                         <li><a href="/user/login">Iniciar sesión</a></li>
+                        
                         <% }%>
-
             </ul>
         </nav>
         <div class="seccion-carrito">
