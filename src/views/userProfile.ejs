@@ -4,20 +4,19 @@
 <head>
     <title>Perfil de usuario</title>
     <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/styles/userProfile.css">
 </head>
 
 <body>
     <%- include('./partials/header') %>
         <main>
-            <div class="row">
-                <div class="col-md-3">
+            <div class="contenedor-user">
+                <div class="contenedor-nombre">
                     <h1>Hola <%= usuario.first_name + ' ' + usuario.last_name %></h1>
                 </div>
-                <figure>
-                    <img src="/images/users/<%= usuario.profile_image %>" alt="imagen-del-usuario">
+                <figure class="contenedor-imagen">
+                    <img src="/images/users/<%= usuario.profile_image %>" class="imagen-producto" alt="imagen-del-usuario">
                 </figure>
-                    <a href="/user/edit/<%= usuario.id %>"><button type="submit">Editar información</button></a>
-                
             </div>
         </main>
     <%- include('./partials/footer') %>
