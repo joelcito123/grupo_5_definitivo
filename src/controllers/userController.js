@@ -111,14 +111,14 @@ const userController = {
     edit: (req, res) => {
         let id = req.params.id;
         db.User.findByPk(id)
-            .then(usuarioEditar => {
-                res.render("editar-usuario", { usuarioEditar });
+            .then(usuario => {
+                res.redirect("editar-usuario", { usuario });
             }).catch(error => {
                 console.log(error);
             })
     },
     update: (req, res) => {
-        const resultValidation = validationResult(req);
+        let resultValidation = validationResult(req);
         if (resultValidation.isEmpty()) {
             db.User.update({
                 first_name: req.body.first_name,
@@ -136,8 +136,8 @@ const userController = {
         } else {
             let id = req.params.id;
         db.User.findByPk(id)
-            .then(usuarioEditar => {
-                res.render("editar-usuario", { usuarioEditar });
+            .then(usuario => {
+                res.render("editar-usuario", { usuario, errors: resultValidation.mapped(), oldData: req.body });
             }).catch(error => {
                 console.log(error);
             })

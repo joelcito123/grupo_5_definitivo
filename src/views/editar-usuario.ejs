@@ -23,8 +23,19 @@
                         <%= errors.first_name.msg %> 
                     </div>
                 <% } %>
-                <input type="text" id="last_name" name="last_name" placeholder="Nuevo apellido" class="form-control">
-                <input type="file" name="profile_image" id="image">
+                <input type="text" id="last_name" name="last_name" placeholder="Nuevo apellido" class="form-control <%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.last_name : null %>">
+                <% if (locals.errors && errors.last_name) { %>
+                    <div class="text-danger">
+                        <%= errors.last_name.msg %> 
+                    </div>
+                <% } %>
+                <input type="file" name="profile_image" id="image" class="form-control <%= locals.errors && errors.profile_image ? 'is-invalid' : null %>">
+                <% if (locals.errors && errors.profile_image) { %>
+                    <div class="text-danger">
+                        <%= errors.profile_image.msg %>
+                    </div>
+                <% } %>
                 <button type="submit">Confirmar edicion</button>
             </form>
         </main>
