@@ -60,7 +60,7 @@ main {
 
 .contenedor-boton button
 {
-    display: none;
+    display: block;
 }
 
 .contenedor-precio {
@@ -89,16 +89,17 @@ main {
 
 .contenedor-editar,
 .contenedor-eliminar {
-    width: 48%;
+    width: 32%;
 }
 
 .boton-editar,
-.boton-eliminar {
+.boton-eliminar,
+.agregarAlCarrito {
     width: 100%;
 }
 
 .contenedor-boton button {
-    width: 45%;
+    width: 100%;
 }
 
 /*Media Queries*/

@@ -37,11 +37,6 @@
                                 $<%= product.price %>
                             </p>
                         </div>
-
-                        <div class="contenedor-boton">
-                            <button>Lo quiero ya!!!</button>
-                            <button class="agregar-carrito">Agregar al carrito</button>
-                        </div>
                     </div>
 
                     <div class="contenedor-manipular">
@@ -53,12 +48,16 @@
                             class="contenedor-eliminar">
                             <button type="submit" class="boton-eliminar">Eliminar</button>
                         </form>
+                        <form action="/products/<%= product.id %>" method="POST">
+                            <button type="submit" class="agregarAlCarrito">Agregar al carrito</button>
+                        </form>
                         <% } %>
                     </div>
                 </div>
             </section>
         </main>
         <%- include('./partials/footer')%>
+        <script src="/js/agregarCarrito.js"></script>
 </body>
 
 </html>

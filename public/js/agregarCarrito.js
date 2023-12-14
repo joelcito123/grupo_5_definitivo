@@ -1,17 +1,10 @@
-/*window.onload = function() {
-    const botonAgregarCarrito = document.getElementById('agregar-carrito');
-
-    botonAgregarCarrito.addEventListener('click', function(){
-        const idProducto = product.id
-    })
-}*/
-
 window.onload = function (){
     const agregarAlCarrito = document.querySelector('.agregarAlCarrito')
+
     let productoEnCarrito = [];
 
     function agregarCarrito(){
-
+        
     }
 
     agregarAlCarrito.addEventListener('click', agregarCarrito);

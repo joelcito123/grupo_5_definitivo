@@ -59,4 +59,7 @@ router.put('/:id', upload.single('image'), validationsProduct, productosControll
 
 router.delete('/:id', productosController.delete); //Devolver Delete
 
+// agregar carrito
+router.post('/:id', productosController.agregarCarrito)
+
 module.exports = router;

@@ -1,7 +1,7 @@
 const fs = require('fs'); //Requerir File System
 const path = require('path'); //Requerir Path 
 const db = require("../database/models"); //Requerir db (modelos)
-const { error } = require('console');
+const { error, log } = require('console');
 const { validationResult } = require("express-validator"); //Requerir express-validator
 const { Op } = require("sequelize"); //Requerir sequelize
 

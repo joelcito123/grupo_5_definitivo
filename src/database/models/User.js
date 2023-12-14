@@ -31,10 +31,13 @@ module.exports = (sequelize, dataTypes) => {
     
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = (models) => {
-        User.belongsTo(models.Order, {
-            as: "orders",
-            foreignKey: "order_id"
+    User.associate = (modelos) => {
+        User.belongsToMany(modelos.Product, {
+            as: "productos",
+            through: "orders",
+            foreignKey: "user_id",
+            otherKey: "product_id",
+            timestamps: false
         })
     }
 

@@ -12,6 +12,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false
         },
+        product_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        }
     }
     let config = {
         tableName: "orders",
@@ -21,16 +25,13 @@ module.exports = (sequelize, dataTypes) => {
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = (modelos) => {
-        Order.hasMany(modelos.User, {
-            as: "users",
-            foreignKey: "order_id"
+        Order.belongsTo(modelos.User, {
+            as: "usuarios",
+            foreignKey: "user_id"
         })
-        Order.belongsToMany(modelos.Product, {
+        Order.belongsTo(modelos.Product, {
             as: "productos",
-            through: "product_order",
-            foreignKey: "order_id",
-            otherKey: "product_id",
-            timestamps: false
+            foreignKey: "product_id",
         })
     }
 
