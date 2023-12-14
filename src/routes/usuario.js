@@ -16,7 +16,8 @@ const validacionesLoginUsuario = [
     .notEmpty().withMessage('Debes completar el campo de email')
     .isEmail().withMessage('Debe ser un email valido'),
     body('hashed_password')
-    .notEmpty().withMessage('Contraseña no valida'),
+    .notEmpty().withMessage('Contraseña no valida')
+    .isLength({min: 8}).withMessage("Tenés que escribir una contraseña de al menos 8 caracteres")
 ]
 
 
@@ -30,7 +31,7 @@ router.post('/register', uploadFile.single('profile_image'), validations, userCo
 router.get('/login', guestMiddleware, userController.login);
 
 // Procesar el login
-router.post('/login', validacionesLoginUsuario,userController.loginProcess);
+router.post('/login', validacionesLoginUsuario, userController.loginProcess);
 
 // Perfil de Usuario
 router.get('/profile', authMiddleware, userController.profile);

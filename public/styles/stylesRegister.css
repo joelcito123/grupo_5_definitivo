@@ -22,14 +22,13 @@
 .title {
     width: 100%;
     font-size: 37px;
-
+    padding-bottom: 20px;
 }
 
 .row {
    width: 100%;
    display: flex;
    justify-content: center;
-   align-items: center;
 }
 
 .col-md-6.my-1 {

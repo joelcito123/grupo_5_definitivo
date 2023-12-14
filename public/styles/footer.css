@@ -39,6 +39,14 @@ footer {
     color: #4e4e4e;
 }
 
+.transicion {
+    transition: color 250ms 650ms;
+}
+
+.transicion:hover {
+    color: salmon
+}
+
 .list-footer li a {
     text-decoration: none;
     color: inherit;

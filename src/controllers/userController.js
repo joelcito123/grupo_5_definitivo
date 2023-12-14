@@ -82,7 +82,10 @@ const userController = {
                         }
                         res.redirect('/products');
                     } else {
-                        console.log('hay algo mal');
+                        return res.render('login', {
+                            errors: errors,
+                            oldData: req.body
+                        })
                     }
                 })
                 .catch(error => { console.log(error); })

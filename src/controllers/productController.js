@@ -183,6 +183,25 @@ const productController = {
             return res.redirect('/products')
         })
             .catch(error => res.send(error))
+    },
+
+    agregarCarrito: (req, res) => {
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(producto => {
+            let usuario = req.session.usuario;
+            let idUsuario = usuario.id;
+            if(producto && usuario){
+                db.Order.create({
+                    user_id: idUsuario,
+                    product_id: producto.id
+                })
+            }
+            res.redirect('/')
+        })
     }
 }
 
