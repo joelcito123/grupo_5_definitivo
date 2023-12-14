@@ -48,9 +48,12 @@
                             class="contenedor-eliminar">
                             <button type="submit" class="boton-eliminar">Eliminar</button>
                         </form>
-                        <form action="/products/<%= product.id %>" method="POST">
-                            <button type="submit" class="agregarAlCarrito">Agregar al carrito</button>
-                        </form>
+                        
+                        <% } %>
+                        <% if (usuario) { %>
+                            <form action="/products/<%= product.id %>" method="POST">
+                                <button type="submit" class="agregarAlCarrito">Agregar al carrito</button>
+                            </form>
                         <% } %>
                     </div>
                 </div>

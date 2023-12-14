@@ -115,7 +115,9 @@ const userController = {
         let id = req.params.id;
         db.User.findByPk(id)
             .then(usuario => {
-                res.redirect("editar-usuario", { usuario });
+                res.render('editar-usuario', {
+                    usuarioEditar: usuario
+                })
             }).catch(error => {
                 console.log(error);
             })
@@ -132,18 +134,22 @@ const userController = {
                     id: req.params.id,
                 }
             }).then(() => {
+                if(req.cookies.emailUsuario) {
+                    res.clearCookie('emailUsuario')
+                }
+                req.session.destroy();
                 return res.redirect('/user/login')
             })
                 .catch(error => console.log(error));
 
         } else {
             let id = req.params.id;
-        db.User.findByPk(id)
-            .then(usuario => {
-                res.render("editar-usuario", { usuario, errors: resultValidation.mapped(), oldData: req.body });
-            }).catch(error => {
-                console.log(error);
-            })
+            db.User.findByPk(id)
+                .then(usuario => {
+                    res.render("editar-usuario", { errors: resultValidation.mapped(), oldData: req.body, usuarioEditar: usuario });
+                }).catch(error => {
+                    console.log(error);
+                })
         }
 
     },

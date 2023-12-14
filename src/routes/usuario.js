@@ -10,6 +10,7 @@ const uploadFile = require('../middlewares/multerMiddleware');
 const validations = require('../middlewares/validateRegisterMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const editValidations = require('../middlewares/loginMiddleware');
 
 const validacionesLoginUsuario = [
     body('email')
@@ -50,6 +51,6 @@ router.get('/usuario', function(req, res){
 
 // editar usuario
 router.get('/edit/:id', userController.edit);
-router.put('/:id', uploadFile.single('profile_image'), validations, userController.update)
+router.put('/:id', uploadFile.single('profile_image'), editValidations, userController.update)
 
 module.exports = router;
