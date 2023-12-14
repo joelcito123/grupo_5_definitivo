@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include('./partials/head')%>
-    <title>UrbanEats - Carrito de Compras</title>
-    <link rel="stylesheet" href="/styles/stylesHome.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title>UrbanEats - Carrito de Compras</title>
+        <link rel="stylesheet" href="/styles/productCart.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
     <%- include('./partials/header')%>
-    <main>
+        <main>
+            <h1 class="title">Carrito</h1>
+            <section class="contenedor-seccion">
 
-            <% orden.forEach(orden => { %>
-                <ul>
-                    <img src="/images/products/<%= orden.productos.image %>" alt="">
-                    <li><%= orden.productos.name %></li>
-                    <li><%= orden.productos.price %></li>
-                </ul>
-                <form action="/eliminar/<%= orden.id %>?_method=DELETE" method="POST">
-                    <button>Eliminar</button>
-                </form>
-                <form action="/cantidad/<%= orden.productos.id %>" method="POST">
-                    <input type="number" value="1" name="cantidadDelProducto" id="cantidadDelProducto" min="1">
-                    <button type="submit">Guardar cantidad</button>
-                </form>
-            <% }) %>
+                <% orden.forEach(orden=> { %>
+                    <div class="contenedor-articulos">
+                        <div class="contenedor-producto">
+                            <figure class="contenedor-imagen">
+                                <img src="/images/products/<%= orden.productos.image %>" alt="imagen" class="imagen">
+                            </figure>
 
-                <a href="/ordenar-ya"><button>Ordenar ya!</button></a>
-            
-        
-    </main>
-    <%- include('./partials/footer')%>
+                            <div class="contenedor-descripcion">
+                                <p class="nombre">
+                                    <%= orden.productos.name %>
+                                </p>
+                                <p class="precio">
+                                    <%= orden.productos.price %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contenedor-opciones">
+                            <form action="/cantidad/<%= orden.productos.id %>" method="POST"
+                                class="contenedor-cantidad">
+                                <input type="number" value="1" name="cantidadDelProducto" id="cantidadDelProducto"
+                                    min="1" class="cantidad-producto">
+                                <button type="submit" class="guardar">Guardar cantidad</button>
+                            </form>
+                            <form action="/eliminar/<%= orden.id %>?_method=DELETE" method="POST"
+                                class="contenedor-eliminar">
+                                <button class="eliminar">Eliminar</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <% }) %>
+                        <div class="contenedor-enviar">
+                            <a href="/ordenar-ya"><button class="boton-enviar">Ordenar ya!</button></a>
+                        </div>
+
+
+            </section>
+        </main>
+        <%- include('./partials/footer')%>
 </body>
+
 </html>
