@@ -200,7 +200,7 @@ const productController = {
                     product_id: producto.id
                 })
             }
-            res.redirect('/')
+            res.redirect('/productCart')
         })
     }
 }

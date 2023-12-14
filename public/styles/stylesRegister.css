@@ -5,18 +5,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 74.5vh;
+    margin: 50px;
  }
 
  form.form-padre {
-   margin: 20px;
-   padding: 20px;
-   border: 1px solid black;
+   border: 1px solid #ccc;
    width: 50%;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   background-color: #f9f9f9;
+   border-radius: 5px;
+   padding: 20px;
 }
 
 .title {
@@ -32,7 +33,6 @@
 }
 
 .col-md-6.my-1 {
-   padding: 20px;
    width: 50%;
 }
 
@@ -49,6 +49,8 @@ div.col-12.my-3 {
 
 div.col-12.my-3 button{
    width: 400px;
+   background-color: #007bff;
+   color: white
 }
 
 /*

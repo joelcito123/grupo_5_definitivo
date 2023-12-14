@@ -17,7 +17,10 @@
                 </div>
                 <figure class="contenedor-imagen">
                     <img src="/images/users/<%= usuario.profile_image %>" class="imagen-producto" alt="imagen-del-usuario">
-                </figure>    
+                </figure>
+                <a href="/user/edit/<%= usuario.id %>" class="editar-link">
+                    <button class="editar-btn">Editar información</button>
+                </a>
             </div>
         </main>
     <%- include('./partials/footer') %>

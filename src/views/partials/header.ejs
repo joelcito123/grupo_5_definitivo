@@ -15,12 +15,13 @@
                 <% if (locals.estaLogueado) { %>
                     <li><a href="/user/profile" class="transicion">Hola <%= locals.usuario.first_name %></a></li>
                     <li><a href="/user/logout" class="transicion">Cerrar sesión</a></li>
-                    <li><a href="/products/create" class="transicion">Vender</a></li>
+                    <li><a href="/productCart" class="transicion">Carrito</a></li>
                     <% } else {%>
                         <li><a href="/user/register" class="transicion">Registrarse</a></li>
                         <li><a href="/user/login" class="transicion">Iniciar sesión</a></li>
                         
                         <% }%>
+                        <li><a href="/products/create">Vender</a></li>
             </ul>
         </nav>
         <div class="seccion-carrito">
