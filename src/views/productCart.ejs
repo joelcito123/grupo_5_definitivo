@@ -8,50 +8,16 @@
 <body>
     <%- include('./partials/header')%>
     <main>
-        <section>
-            <article>
-                <img src="/images/products/locro.jpg" width="150" alt="Locro">
-                <strong>
-                    <button>Eliminar <i class="fa-solid fa-xmark"></i></button>
-                </strong>
-                <p>Locro</p>
-                <p>$2000</p>
-                <strong>Cantidad de productos</strong>
-                <input type="number">
-            </article>
-            <article>
-                <img src="/images/products/locro.jpg" width="150" alt="Locro">
-                <strong>
-                    <button>Eliminar <i class="fa-solid fa-xmark"></i></button>
-                </strong>
-                <p>Locro</p>
-                <p>$2000</p>
-                <strong>Cantidad de productos</strong>
-                <input type="number">
-            </article>
-            <article>
-                <img src="/images/products/locro.jpg" width="150" alt="Locro">
-                <strong>
-                    <button>Eliminar <i class="fa-solid fa-xmark"></i></button>
-                </strong>
-                <p>Locro</p>
-                <p>$2000</p>
-                <strong>Cantidad de productos</strong>
-                <input type="number">
-            </article>
-        </section>
-        <div>
-            <p>.</p>
-        </div>
-        <div>
-            <p>.</p>
-        </div>
-        <section>
-            <p><i class="fa-solid fa-truck-fast"></i> Envío: 1000</p>
-            <p><i class="fa-solid fa-bowl-food"></i> Productos: 123456</p>
-            <p>Total: 124456</p>
-            <button>Comprar Ahora</button>
-        </section>
+        <% orden.forEach(orden => { %>
+            <ul>
+                <img src="/images/products/<%= orden.productos.image %>" alt="">
+                <li><%= orden.productos.name %></li>
+                <li><%= orden.productos.price %></li>
+            </ul>
+            <form action="/eliminar/<%= orden.id %>?_method=DELETE" method="POST">
+                <button>Eliminar</button>
+            </form>
+        <% }) %>
     </main>
     <%- include('./partials/footer')%>
 </body>
