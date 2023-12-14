@@ -52,12 +52,16 @@ const productController = {
                 ]
             }
         }).then(resultado => {
+            let busqueda = req.query.buscar
             /*
             if(req.query.buscar == "") {
                 let error = "Por favor buscar algo";
                 res.render("buscar", {productos: resultado, errors: error})
             }*/
-            res.render("buscar", { productos: resultado });
+            res.render("buscar", { 
+                productos: resultado,
+                busqueda: busqueda 
+            });
         }).catch(error => {
             console.log(error);
         })

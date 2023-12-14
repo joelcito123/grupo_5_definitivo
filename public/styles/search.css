@@ -11,7 +11,7 @@
 }
 
 .contenedor-imagen {
-    border: 1px solid black;
+    margin: 0px
 }
 
 main {
@@ -49,7 +49,7 @@ main {
 }
 
 .contenedor-descripcion {
-    border: 1px solid black;
+    background-color: #f2f1f1;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -67,9 +67,27 @@ main {
     .contenedor-producto {
         width: 43%;
     }
+
+    .enlace-producto {
+        transition: box-shadow 500ms;
+    }
+
     .contenedor-imagen {
         width: 100%;
         height: 160px;
+    }
+
+    /*Pseudoclases*/
+    .enlace-producto:hover{
+        box-shadow: 0px 0px 10px rgb(100, 100, 100); 
+        /*
+        .descripcion{
+            opacity: 1;
+        }*/
+        /*
+        .menu-articulo i{
+            animation: camion 2s 1;
+        }*/
     }
 }
 @media (min-width: 769px){

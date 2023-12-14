@@ -1,24 +1,66 @@
 /*Aplicando CSS al main*/
  main {
     text-align: center;
-    padding-bottom: 40px;
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 74.5vh;
  }
 
-.titulo {
-    margin: 20px auto;
-    width: 50%;
-    font-size: 37px;
+ form.form-padre {
+   margin: 20px;
+   padding: 20px;
+   border: 1px solid black;
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 
+.title {
+    width: 100%;
+    font-size: 37px;
+
+}
+
+.row {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.col-md-6.my-1 {
+   padding: 20px;
+   width: 50%;
+}
+
+#contenedor-campo {
+   width: 60%;
+}
+
+div.col-12.my-3 {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+div.col-12.my-3 button{
+   width: 400px;
+}
+
+/*
  .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
- }
-
+ }*/
+/*
 .form-container input {
     height: 40px;
     padding-left: 15px;
@@ -46,7 +88,7 @@
   color: var(--Blanco);
  }
 /*Aplicando CSS al footer*/
-
+/*
 footer {
     background-color: #333333;
     color: #fff;
@@ -66,4 +108,4 @@ footer {
   .titulo {
     width: auto;
   }
-}
+}*/
