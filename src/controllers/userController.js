@@ -96,7 +96,7 @@ const userController = {
 
     },
     profile: (req, res) => {
-        console.log(req.cookies.emailUsuario);
+        //console.log(req.cookies.emailUsuario);
         return res.render('userProfile', {
             usuario: req.session.usuario,
         });

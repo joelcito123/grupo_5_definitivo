@@ -4,13 +4,17 @@
     box-sizing: border-box;
 }
 
+main {
+    margin: 20px
+}
+
 .titulo-seccion {
     margin: 15px;
     color: #4e4e4e;
 }
 
 .contenedor-producto {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -48,26 +52,41 @@
 /*Media Queries*/
 @media (min-width: 361px) {
     .contenedor-producto {
-        width: 43%;
+        width: 43%;     
+        transition: box-shadow 500ms;
+        height: 100%;
     }
     .contenedor-imagen {
         width: 100%;
         height: 160px;
-        
+    }
+    /*Pseudoclases*/
+    .contenedor-producto:hover{
+        box-shadow: 0px 0px 10px rgb(100, 100, 100); 
+        /*
+        .descripcion{
+            opacity: 1;
+        }*/
+        /*
+        .menu-articulo i{
+            animation: camion 2s 1;
+        }*/
     }
 }
 @media (min-width: 769px){
     .contenedor-producto {
         width: 30%;
+        height: 100%;
     }
     .contenedor-imagen {
         width: 100%;
-        height: 180px;
+        height: 160px;
     }
 }
 @media (min-width: 1050px){
     .contenedor-producto {
         width: 30%;
+        height: 100%;
     }
     .contenedor-imagen {
         width: 100%;
