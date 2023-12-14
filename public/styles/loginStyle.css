@@ -7,22 +7,46 @@
 /*Aplicando CSS al main*/
 
 main {
-    background-color: #EAEAEA;
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 79.5vh;
+    text-align: center;
+    /*max-width: 400px;
     height: 470px;
     text-align: center;
     margin: 20px auto;
     padding-top: 15px;
-    border-radius: 15px;
+    border-radius: 15px;*/
 }
 
 main h1 {
-    margin-bottom: 20px;
+    padding: 20px;
 }
 
-main form {
-    text-align: center;
-}
+form.form-padre {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .col-md-6.my-2 {
+    padding: 20px;
+    width: 50%;
+ }
 
 main form input{
     display: block;
@@ -30,13 +54,15 @@ main form input{
     border-radius: 5px;
     width: 80%;
     height: 30px;
-    background-color: #aeacac;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    text-decoration-color: black;
 }
+
+div.col-12.my-3 {
+    padding: 20px;
+ }
 
 button {
     border-radius: 5px;
@@ -48,9 +74,9 @@ button {
     text-align: center;
 }
 /*Aplicando CSS al footer*/
-
+/*
 footer {
     background-color: #333333;
     color: #fff;
     ;
-}
+}*/

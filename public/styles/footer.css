@@ -21,6 +21,7 @@ footer {
 .title-footer {
     display: none;
     color: #4e4e4e;
+    margin: 0px
 }
 
 .list-footer {
@@ -30,6 +31,7 @@ footer {
     align-items: center;
     text-align: center;
     gap: 20px;
+    margin: 0px
 }
 
 .list-footer li {
@@ -50,6 +52,7 @@ footer {
     color: #4e4e4e;
     font-size: 14px;
     padding: 20px;
+    margin: 0px
 }
 
 @media (min-width: 564px) {

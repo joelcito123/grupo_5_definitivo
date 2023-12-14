@@ -5,6 +5,7 @@
     <%- include('./partials/head')%>
         <title>UrbanEats Jujuy</title>
         <link rel="stylesheet" href="/styles/stylesHome.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -13,43 +14,43 @@
             <section>
                 <h2 class="titulo-seccion">Lo favorito de la gente</h2>
                 <div class="contenedor-articulos">
-                    <% products.forEach((producto, index)=> { %>
+                    <% for(let indice = 0; indice < 3; indice++) { %>
                         <article class="contenedor-producto">
-                            <a href="/products/detail/<%= producto.id %>" class="enlace-producto">
+                            <a href="/products/detail/<%= products[indice].id %>" class="enlace-producto">
                                 <figure class="contenedor-imagen">
-                                    <img src="/images/products/<%= producto.image %>" alt="Imagen del producto"
+                                    <img src="/images/products/<%= products[indice].image %>" alt="Imagen del producto"
                                         class="imagen-producto">
                                 </figure>
                                 <div class="detalle-producto">
                                     <p class="nombre">
-                                        <%= producto.name %>
+                                        <%= products[indice].name %>
                                     </p>
-                                    <p class="precio">$<%= producto.price %>
+                                    <p class="precio">$<%= products[indice].price %>
                                     </p>
                                 </div>
                             </a>
                         </article>
-                        <% }) %>
+                        <% } %>
                 </div>
                 <h2 class="titulo-seccion">Tambien te puede interesar</h2>
                 <div class="contenedor-articulos">
-                    <% products.forEach((producto, index)=> { %>
+                    <% for(let indice = 3; indice < 6; indice++) { %>
                         <article class="contenedor-producto">
-                            <a href="/products/detail/<%= producto.id %>" class="enlace-producto">
+                            <a href="/products/detail/<%= products[indice].id %>" class="enlace-producto">
                                 <figure class="contenedor-imagen">
-                                    <img src="/images/products/<%= producto.image %>" alt="Imagen del producto"
+                                    <img src="/images/products/<%= products[indice].image %>" alt="Imagen del producto"
                                         class="imagen-producto">
                                 </figure>
                                 <div class="detalle-producto">
                                     <p class="nombre">
-                                        <%= producto.name %>
+                                        <%= products[indice].name %>
                                     </p>
-                                    <p class="precio">$<%= producto.price %>
+                                    <p class="precio">$<%= products[indice].price %>
                                     </p>
                                 </div>
                             </a>
                         </article>
-                        <% }) %>
+                        <% } %>
                 </div>
             </section>
         </main>

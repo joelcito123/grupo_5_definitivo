@@ -11,10 +11,10 @@
 <body>
     <%- include('./partials/header')%>
     <main>
-        <form action="/user/register" method="POST" enctype="multipart/form-data">
-            <h1>REGISTRARSE</h1>
+        <form action="/user/register" method="POST" enctype="multipart/form-data" class="form-padre">
+            <h1 class="title">Registrarse</h1>
             <div class="row">
-                <div class="col-md-6 my-1">
+                <div class="col-md-6 my-1" >
                     <div class="form-group">
                         <label><b>Nombre:</b></label>
                         <input 
@@ -30,7 +30,7 @@
                         <% } %>
                     </div>
                 </div>
-                <div class="col-md-6 my-1">
+                <div class="col-md-6 my-1" >
                     <div class="form-group">
                         <label><b>Apellido:</b></label>
                         <input 
@@ -46,7 +46,7 @@
                         <% } %>
                     </div>
                 </div>
-                <div class="col-md-6 my-1">
+                <div class="col-md-6 my-1" >
                     <div class="form-group">
                         <label><b>Correo electrónico:</b></label>
                         <input 
@@ -62,7 +62,7 @@
                         <% } %>
                     </div>
                 </div>
-                <div class="col-md-6 my-1">
+                <div class="col-md-6 my-1" >
                     <div class="form-group">
                         <label><b>Password:</b></label>
                         <input 
@@ -77,7 +77,7 @@
                         <% } %>
                     </div>
                 </div>
-                <div class="col-md-6 my-1">
+                <div class="col-md-6 my-1" id="contenedor-campo">
                     <div class="form-group">
                         <label><b>Imagen de perfil:</b></label>
                         <input 
@@ -92,8 +92,8 @@
                         <% } %>
                     </div>
                 </div>
-                <div class="col-12 my-3">
-                    <button type="submit" class="">Registrarse</button>
+                <div class="col-12 my-3" >
+                    <button type="submit" class="form-control">Registrarse</button>
                 </div>
             </div>
             

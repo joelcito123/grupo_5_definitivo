@@ -10,15 +10,15 @@
         </div>
         <nav class="secciones-pagina">
             <ul class="menu">
-                <li><a href="/quienesSomos">Quienes Somos</a></li>
-                <li><a href="/products">Todos los productos</a></li>
+                <li><a href="/quienesSomos" class="transicion">Quienes Somos</a></li>
+                <li><a href="/products" class="transicion">Todos los productos</a></li>
                 <% if (locals.estaLogueado) { %>
-                    <li><a href="/user/profile">Hola <%= locals.usuario.first_name %></a></li>
-                    <li><a href="/user/logout">Cerrar sesión</a></li>
-                    <li><a href="/products/create">Vender</a></li>
+                    <li><a href="/user/profile" class="transicion">Hola <%= locals.usuario.first_name %></a></li>
+                    <li><a href="/user/logout" class="transicion">Cerrar sesión</a></li>
+                    <li><a href="/products/create" class="transicion">Vender</a></li>
                     <% } else {%>
-                        <li><a href="/user/register">Registrarse</a></li>
-                        <li><a href="/user/login">Iniciar sesión</a></li>
+                        <li><a href="/user/register" class="transicion">Registrarse</a></li>
+                        <li><a href="/user/login" class="transicion">Iniciar sesión</a></li>
                         
                         <% }%>
             </ul>
@@ -28,7 +28,7 @@
         </div>
 
         <form action="/products/buscar" method="GET" class="seccion-buscar">
-            <input type="text" name="buscar" id="buscar" class="input-buscar">
+            <input type="text" name="buscar" id="buscar" class="input-buscar" placeholder="Buscar producto">
             <button type="submit" class="boton-buscar"><i class="fas fa-search icono-buscar"></i></button>
         </form>
     </div>
