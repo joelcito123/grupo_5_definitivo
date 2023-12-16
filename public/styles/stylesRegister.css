@@ -1,112 +1,98 @@
-/*Aplicando CSS al main*/
- main {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
- }
+/* Estilos para dispositivos móviles (celulares) */
+.contenedor-formulario {
+   padding: 10px;
+}
 
- form.form-padre {
-   border: 1px solid #ccc;
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+.form-padre {
    background-color: #f9f9f9;
-   border-radius: 5px;
-   padding: 20px;
+   border-radius: 8px;
+   padding: 15px;
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-    width: 100%;
-    font-size: 37px;
-    padding-bottom: 20px;
+   font-size: 1.3em;
+   text-align: center;
+   margin-bottom: 15px;
 }
 
 .row {
+   display: flex;
+   flex-direction: column;
+}
+
+.col-md-6 {
+   flex: 0 0 100%;
+   margin-bottom: 15px;
+}
+
+.form-control {
    width: 100%;
-   display: flex;
-   justify-content: center;
+   padding: 8px;
+   border-radius: 4px;
+   border: 1px solid #ccc;
 }
 
-.col-md-6.my-1 {
-   width: 50%;
+.is-invalid {
+   border-color: #f44336;
 }
 
-#contenedor-campo {
-   width: 60%;
+.text-danger {
+   color: #f44336;
+   margin-top: 5px;
 }
 
-div.col-12.my-3 {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
+.btn-registrarse {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
 }
 
-div.col-12.my-3 button{
-   width: 400px;
-   background-color: #007bff;
-   color: white
+/* Estilos para tabletas */
+@media (min-width: 768px) {
+   .contenedor-formulario {
+       padding: 20px;
+   }
+
+   .form-padre {
+       padding: 25px;
+   }
+
+   .title {
+       font-size: 1.5em;
+   }
+
+   .row {
+       flex-direction: row;
+   }
+
+   .col-md-6 {
+       flex: 0 0 calc(50% - 10px);
+       margin-bottom: 20px;
+   }
 }
 
-/*
- .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
- }*/
-/*
-.form-container input {
-    height: 40px;
-    padding-left: 15px;
-    border: 1px solid var(--Gris-oscuro2);
-    outline: none;
-    border-radius: 10px;
-    background-color: var(--Gris-claro2);
-    margin-bottom: 30px;
-    width: 75%;
-    font-size: 24px;
- }*/
+/* Estilos para computadoras */
+@media (min-width: 1024px) {
+   .contenedor-formulario {
+       padding: 30px;
+   }
 
- .form-container input::placeholder {
-    color: var(--Gris-oscuro2);
-    text-align: center;
- }
+   .form-padre {
+       padding: 30px;
+   }
 
- .btn {
-  height: 40px;
-  border: none;
-  width: 75%;
-  font-size: 24px;
-  background-color: var(--Gris-oscuro2);
-  border-radius: 10px;
-  color: var(--Blanco);
- }
-/*Aplicando CSS al footer*/
-/*
-footer {
-    background-color: #333333;
-    color: #fff;
+   .title {
+       font-size: 1.8em;
+   }
+
+   .col-md-6 {
+       flex: 0 0 calc(50% - 15px);
+       margin-bottom: 25px;
+   }
 }
-
-@media (min-width: 480px) {
-  main {
-    width: 90%;
-    max-width: 500px;
-    border: solid 1px var(--Gris-oscuro2);
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 7px;
-  }
-
-  .titulo {
-    width: auto;
-  }
-}*/

@@ -6,6 +6,17 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    
+}
+
+footer {
+    margin-top: auto; /* Coloca el footer al final */
+    text-align: center;
+    padding: 20px;
 }
 
 .container-header {
@@ -52,6 +63,10 @@ header {
 
 .link-header {
     text-decoration: none;
+    color: inherit;
+}
+
+.icon-cart-container {
     color: inherit;
 }
 

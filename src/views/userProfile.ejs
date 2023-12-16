@@ -4,24 +4,27 @@
 <head>
     <title>Perfil de usuario</title>
     <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/styles/userProfile.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/userProfile.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
     <%- include('./partials/header') %>
-        <main>
+        <main class="contenedor-usuario">
             <div class="contenedor-user">
                 <div class="contenedor-nombre">
-                    <h1 class="nombre">Hola <%= usuario.first_name + ' ' + usuario.last_name %></h1>
+                    <h1 class="nombre">Hola <%= usuario.first_name + ' ' + usuario.last_name %>
+                    </h1>
                 </div>
                 <figure class="contenedor-imagen">
-                    <img src="/images/users/<%= usuario.profile_image %>" class="imagen-producto" alt="imagen-del-usuario">
+                    <img src="/images/users/<%= usuario.profile_image %>" class="imagen-producto"
+                        alt="imagen-del-usuario">
                 </figure>
                 <a href="/user/edit/<%= usuario.id %>" class="editar-link">
                     <button class="editar-btn">Editar información</button>
                 </a>
             </div>
         </main>
-    <%- include('./partials/footer') %>
+        <%- include('./partials/footer') %>
 </body>

@@ -1,26 +1,25 @@
-.form-container {
-    margin: 20px;
+/* Estilos para dispositivos móviles (celulares) */
+.formulario-editar {
+    padding: 10px;
 }
 
 .edit-form {
-    width: 80%;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-title {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 1.5em;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .edit-info {
-    margin-bottom: 15px;
+    font-style: italic;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .form-label {
@@ -28,40 +27,43 @@
     margin-bottom: 5px;
 }
 
-.form-input,
-.form-input-file,
-.form-btn {
-    margin-bottom: 15px;
+.form-control {
+    width: 100%;
     padding: 8px;
-    width: calc(100% - 16px); /* Take into account padding */
-    box-sizing: border-box;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
-.form-input,
-.form-input-file {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+.is-invalid {
+    border-color: #f44336; /* Color rojo para indicar error */
 }
 
 .form-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 30px;
+    cursor: pointer;}
+
+/* Estilos para tabletas y computadoras */
+@media (min-width: 768px) {
+    .formulario-editar {
+        padding: 20px;
+    }
+
+    .edit-form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 }
 
-.form-btn:hover {
-    background-color: #0056b3;
-}
-
-.error-msg {
-    color: red;
-    margin-top: 5px;
-    font-size: 14px;
+/* Estilos para computadoras */
+@media (min-width: 1024px) {
+    .edit-form {
+        padding: 30px;
+    }
 }

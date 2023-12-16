@@ -11,38 +11,40 @@
 
 <body>
     <%- include('./partials/header') %>
-        <main>
-            <form action="/user/<%= usuarioEditar.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="edit-form">
-                <h2 class="form-title">Formulario de edicion de usuario</h2>
-                <p class="edit-info">Editando: <%= usuarioEditar.first_name + ' ' + usuarioEditar.last_name %>
-                </p>
-                <label for="name" class="form-label">Nombre:</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Nuevo nombre" class="form-control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
+    <main class="formulario-editar">
+        <form action="/user/<%= usuarioEditar.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="edit-form">
+            <h2 class="form-title">Formulario de edición de usuario</h2>
+            <p class="edit-info">Editando: <%= usuarioEditar.first_name + ' ' + usuarioEditar.last_name %></p>
+    
+            <label for="name" class="form-label">Nombre:</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Nuevo nombre" class="form-control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.first_name : null %>">
-                <% if (locals.errors && errors.first_name) { %>
-                    <div class="text-danger">
-                        <%= errors.first_name.msg %> 
-                    </div>
-                <% } %>
-                <label for="last_name" class="form-label">Apellido:</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Nuevo apellido" class="form-control <%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
+            <% if (locals.errors && errors.first_name) { %>
+            <div class="text-danger">
+                <%= errors.first_name.msg %> 
+            </div>
+            <% } %>
+    
+            <label for="last_name" class="form-label">Apellido:</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Nuevo apellido" class="form-control <%= locals.errors && errors.last_name ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.last_name : null %>">
-                <% if (locals.errors && errors.last_name) { %>
-                    <div class="text-danger">
-                        <%= errors.last_name.msg %> 
-                    </div>
-                <% } %>
-
-                <label for="profile_image">Imagen de perfil</label>
-                <input type="file" name="profile_image" id="profile_image" class="form-control <%= locals.errors && errors.profile_image ? 'is-invalid' : null %>">
-                <% if (locals.errors && errors.profile_image) { %>
-                    <div class="text-danger">
-                        <%= errors.profile_image.msg %>
-                    </div>
-                <% } %>
-                <button type="submit" class="form-btn">Confirmar edicion</button>
-            </form>
-        </main>
+            <% if (locals.errors && errors.last_name) { %>
+            <div class="text-danger">
+                <%= errors.last_name.msg %> 
+            </div>
+            <% } %>
+    
+            <label for="profile_image" class="form-label">Imagen de perfil</label>
+            <input type="file" name="profile_image" id="profile_image" class="form-control <%= locals.errors && errors.profile_image ? 'is-invalid' : null %>">
+            <% if (locals.errors && errors.profile_image) { %>
+            <div class="text-danger">
+                <%= errors.profile_image.msg %>
+            </div>
+            <% } %>
+    
+            <button type="submit" class="form-btn">Confirmar edición</button>
+        </form>
+    </main>
         <%- include('./partials/footer') %>
 </body>
 

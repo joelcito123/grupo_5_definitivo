@@ -10,43 +10,40 @@
 
 <body>
     <%- include('./partials/header')%>
-    <main>
+    <main class="contenedor-formulario">
         <form action="/user/login" method="POST" class="form-padre">
-            <h1>Iniciá Sesion</h1>
+            <h1>Iniciá Sesión</h1>
             <div class="row">
                 <div class="col-md-6 my-2">
                     <div class="form-group">
-                        <label><b>Correo electrónico:</b></label>
-                        <input type="text" name="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
+                        <label for="email"><b>Correo electrónico:</b></label>
+                        <input type="text" id="email" name="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
                         <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger">
-                                <%= errors.email.msg %> 
-                            </div>
+                        <div class="text-danger">
+                            <%= errors.email.msg %> 
+                        </div>
                         <% } %>
                     </div>
                 </div>
                 <div class="col-md-6 my-2">
                     <div class="form-group">
-                        <label><b>Password:</b></label>
-                        <input type="password" name="hashed_password" class="form-control <%= locals.errors && errors.hashed_password? 'is-invalid' : null %>">
+                        <label for="password"><b>Password:</b></label>
+                        <input type="password" id="password" name="hashed_password" class="form-control <%= locals.errors && errors.hashed_password ? 'is-invalid' : null %>">
                         <% if (locals.errors && errors.hashed_password) { %>
-                            <div class="text-danger">
-                                <%= errors.hashed_password.msg %> 
-                            </div>
-                        <% } %>
-                        <div class="invalid-feedback">
+                        <div class="text-danger">
+                            <%= errors.hashed_password.msg %> 
                         </div>
+                        <% } %>
                     </div>
                 </div>
                 <div class="col-md-6 my-2">
                     <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="remember_user">Recordar mi usuario
-                        </label>
+                        <input type="checkbox" id="remember_user" class="form-check-input" name="remember_user">
+                        <label for="remember_user" class="form-check-label">Recordar mi usuario</label>
                     </div>
                 </div>
                 <div class="col-12 my-3">
-                    <button type="submit" class="">Loguearme</button>
+                    <button type="submit" class="form-control btn-login">Iniciar Sesión</button>
                 </div>
             </div>
         </form>
