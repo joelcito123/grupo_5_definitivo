@@ -5,7 +5,7 @@
                 <p class="newlogo">UrbanEats</p>
             </a>
         </figure>
-        <div class="barras">
+        <div class="barras" onclick="toggleMenu()">
             <i class="fa-solid fa-bars bars"></i>
         </div>
         <nav class="secciones-pagina">
@@ -16,12 +16,13 @@
                     <li><a href="/user/profile" class="transicion">Hola <%= locals.usuario.first_name %></a></li>
                     <li><a href="/user/logout" class="transicion">Cerrar sesión</a></li>
                     <li><a href="/productCart" class="transicion">Carrito</a></li>
-                    <% } else {%>
+                    <% } else { %>
                         <li><a href="/user/register" class="transicion">Registrarse</a></li>
                         <li><a href="/user/login" class="transicion">Iniciar sesión</a></li>
-                        
-                        <% }%>
-                        <li><a href="/products/create">Vender</a></li>
+                        <% } %>
+                            <% if (locals.usuario && locals.usuario.first_name=='Daniel' ) { %>
+                                <li><a href="/products/create">Vender</a></li>
+                                <% } %>
             </ul>
         </nav>
         <div class="seccion-carrito">
@@ -33,4 +34,55 @@
             <button type="submit" class="boton-buscar"><i class="fas fa-search icono-buscar"></i></button>
         </form>
     </div>
+    <nav class="sidebar">
+        <span onclick="toggleMenu()" class="span-sidebar">
+            <i class="fas fa-times close-icon"></i>
+            Cerrar
+        </span>
+        <a href="/user/profile">
+            <% if (locals.estaLogueado) { %>
+                <div class="profile-section">
+                    <img src="/images/users/<%= locals.usuario.profile_image %>" alt="Imagen de perfil">
+                    <div class="profile-info">
+                        <p>
+                            <%= locals.usuario.first_name %>
+                                <%= locals.usuario.last_name %>
+                        </p>
+                        <span>Mi perfil</span>
+                    </div>
+                </div>
+                <% } else { %>
+                    <li><a href="/user/register" class="transicion">Registrarse</a></li>
+                    <li><a href="/user/login" class="transicion">Iniciar sesión</a></li>
+                    <% } %>
+
+        </a>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#" class="enlace-buscar">Buscar</a></li>
+            <li><a href="/products">Productos</a></li>
+            <li><a href="/quienesSomos">Quienes somos</a></li>
+            <li><a href="https://github.com/joelcito123/grupo_5_definitivo" target="_blank">Contacto</a></li>
+                <% if (locals.estaLogueado) { %>
+                    <li><a href="/user/logout">Cerrar sesión</a></li>
+                <% } %>
+        </ul>
+    </nav>
+    <!-- Script para el menú desplegable -->
+    <script>
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('show-sidebar');
+        }
+
+        const enlaceBuscar = document.querySelector('.enlace-buscar');
+        const inputBuscar = document.querySelector('.input-buscar');
+
+        enlaceBuscar.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleMenu()
+            inputBuscar.focus();
+        })
+
+    </script>
 </header>
