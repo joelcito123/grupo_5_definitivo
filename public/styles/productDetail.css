@@ -77,22 +77,18 @@
     }
 
     .contenedor-producto {
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .contenedor-imagen {
-        flex: 0 0 40%;
-        text-align: left;
-        margin-right: 20px;
-    }
-
-    .contenedor-contenido {
-        flex: 0 0 60%;
-        margin-top: 0;
+        text-align: center;
     }
 
     .contenedor-manipular {
-        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
     }
 
     .boton-editar,
@@ -101,6 +97,10 @@
         width: auto;
         display: inline-block;
         margin-right: 10px;
+    }
+
+    .contenedor-contenido {
+        text-align: center;
     }
 }
 
