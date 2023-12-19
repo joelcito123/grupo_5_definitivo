@@ -31,3 +31,7 @@ url de páginas:
 Enlace al tablero de trabajo
 
 https://trello.com/b/pRze0uSZ/urbaneats-jujuy
+
+Enlace al dashboard
+
+https://github.com/ramox-mq/proyecto-react
