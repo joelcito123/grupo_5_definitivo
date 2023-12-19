@@ -36,9 +36,9 @@ const controlador = {
                         },
 
                     })
-                    .then(ordenDelUsuario => {
+                        .then(ordenDelUsuario => {
                             res.render('productCart', { orden: ordenDelUsuario });
-                    })
+                        })
                 }
             })
             .catch(error => {
@@ -77,19 +77,17 @@ const controlador = {
                 if (cantidad > 1) {
                     let usuario = req.session.usuario;
                     let idUsuario = usuario.id;
-                    let arrayProducto = [producto];
-                    for (let i = 0; i < arrayProducto.length + 1; i++) {
-                        if (producto && usuario) {
-
-                            db.Order.create({
-                                user_id: idUsuario,
-                                product_id: producto.id
-                            })
-                        }
+                    for (let i = 1; i < cantidad; i++) {
+                        db.Order.create({
+                            user_id: idUsuario,
+                            product_id: producto.id
+                        })
+                        
                     }
                 }
-                res.redirect('/productCart')
             })
+            
+             res.redirect('/productCart')
     },
     ordenarYa: (req, res) => {
         res.render('ordenLista')
